@@ -78,6 +78,7 @@ type Parsed struct {
 	// - notho- hybrid
 	// - hybrid formula
 	Hybrid *Annotation `json:"hybrid,omitempty"`
+	
 	// Surrogate is a wide category of names that do not follow
 	// nomenclatural rules
 

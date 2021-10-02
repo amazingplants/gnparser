@@ -91,6 +91,14 @@ func (p *Engine) newName(n *node32) nameData {
 		annot = parsed.NamedHybridAnnot
 		p.hybrid = &annot
 		name = p.newNamedSpeciesHybridNode(n)
+	case ruleGraftChimeraFormula:
+		annot = parsed.GraftChimeraFormulaAnnot
+		p.hybrid = &annot
+		name = p.newHybridFormulaNode(n)
+	case ruleNamedGenusGraftChimera:
+		annot = parsed.NamedGraftChimeraAnnot
+		p.hybrid = &annot
+		name = p.newNamedGenusHybridNode(n)
 	case ruleCandidatusName:
 		name = p.newCandidatusName(n)
 	case ruleSingleName:
@@ -111,7 +119,20 @@ type hybridElement struct {
 
 func (p *Engine) newHybridFormulaNode(n *node32) *hybridFormulaNode {
 	var hf *hybridFormulaNode
-	p.addWarn(parsed.HybridFormulaWarn)
+	var formulaWarn parsed.Warning
+	var formulaIncompleteWarn parsed.Warning
+	var formulaProbIncompleteWarn parsed.Warning
+	switch n.pegRule {
+	case ruleHybridFormula:
+		formulaWarn = parsed.HybridFormulaWarn
+		formulaIncompleteWarn = parsed.HybridFormulaIncompleteWarn
+		formulaProbIncompleteWarn = parsed.HybridFormulaProbIncompleteWarn
+	case ruleGraftChimeraFormula:
+		formulaWarn = parsed.GraftChimeraFormulaWarn
+		formulaIncompleteWarn = parsed.GraftChimeraFormulaIncompleteWarn
+		formulaProbIncompleteWarn = parsed.GraftChimeraFormulaProbIncompleteWarn
+	}
+	p.addWarn(formulaWarn)
 	n = n.up
 	firstName := p.newSingleName(n)
 	n = n.next
@@ -123,11 +144,15 @@ func (p *Engine) newHybridFormulaNode(n *node32) *hybridFormulaNode {
 			he = &hybridElement{
 				HybridChar: p.newWordNode(n, parsed.HybridCharType),
 			}
+		case ruleGraftChimeraChar:
+			he = &hybridElement{
+				HybridChar: p.newWordNode(n, parsed.GraftChimeraCharType),
+			}
 		case ruleSingleName:
 			he.Species = p.newSingleName(n)
 			hes = append(hes, he)
 		case ruleSpeciesEpithet:
-			p.addWarn(parsed.HybridFormulaIncompleteWarn)
+			p.addWarn(formulaIncompleteWarn)
 			var g *parsed.Word
 			switch node := firstName.(type) {
 			case *speciesNode:
@@ -145,7 +170,7 @@ func (p *Engine) newHybridFormulaNode(n *node32) *hybridFormulaNode {
 		n = n.next
 	}
 	if he.Species == nil {
-		p.addWarn(parsed.HybridFormulaProbIncompleteWarn)
+		p.addWarn(formulaProbIncompleteWarn)
 		hes = append(hes, he)
 	}
 	hf = &hybridFormulaNode{
@@ -184,17 +209,28 @@ type namedGenusHybridNode struct {
 
 func (p *Engine) newNamedGenusHybridNode(n *node32) *namedGenusHybridNode {
 	var nhn *namedGenusHybridNode
+	var hybr *parsed.Word
 	var name nameData
+	var hybridNamedWarn parsed.Warning
+	var hybridCharNoSpaceWarn parsed.Warning
 	n = n.up
-	if n.pegRule != ruleHybridChar {
+	switch n.pegRule {
+	case ruleHybridChar:
+		hybr = p.newWordNode(n, parsed.HybridCharType)
+		hybridNamedWarn = parsed.HybridNamedWarn
+		hybridCharNoSpaceWarn = parsed.HybridCharNoSpaceWarn
+	case ruleGraftChimeraChar:
+		hybr = p.newWordNode(n, parsed.GraftChimeraCharType)
+		hybridNamedWarn = parsed.GraftChimeraNamedWarn
+		hybridCharNoSpaceWarn = parsed.GraftChimeraCharNoSpaceWarn
+	default:
 		return nhn
 	}
-	hybr := p.newWordNode(n, parsed.HybridCharType)
 	n = n.next
 	n = n.up
-	p.addWarn(parsed.HybridNamedWarn)
+	p.addWarn(hybridNamedWarn)
 	if n.begin == 1 {
-		p.addWarn(parsed.HybridCharNoSpaceWarn)
+		p.addWarn(hybridCharNoSpaceWarn)
 	}
 	switch n.pegRule {
 	case ruleUninomial:
@@ -1036,6 +1072,8 @@ func (p *Engine) newWordNode(n *node32, wt parsed.WordType) *parsed.Word {
 
 	if wt == parsed.HybridCharType {
 		wrd.Normalized = "×"
+	} else if wt == parsed.GraftChimeraCharType {
+		wrd.Normalized = "+"
 	} else if wt == parsed.GenusType || wt == parsed.UninomialType {
 		if val[len(val)-1] == '?' {
 			p.addWarn(parsed.CapWordQuestionWarn)

@@ -142,14 +142,14 @@ func (nh *namedGenusHybridNode) words() []parsed.Word {
 
 func (nh *namedGenusHybridNode) value() string {
 	v := nh.nameData.value()
-	v = "× " + v
+	v = nh.Hybrid.Normalized + " " + v
 	return v
 }
 
 func (nh *namedGenusHybridNode) canonical() *canonical {
 	c := &canonical{
 		Value:       "",
-		ValueRanked: "×",
+		ValueRanked: nh.Hybrid.Normalized,
 	}
 
 	c1 := nh.nameData.canonical()
