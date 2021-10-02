@@ -59,6 +59,8 @@ gnparser -h
   * [Command Line](#command-line)
   * [Pipes](#pipes)
   * [R language package](#r-language-package)
+  * [Ruby Gem](#ruby-gem)
+  * [Node.js](#nodejs)
   * [Usage as a REST API Interface](#usage-as-a-rest-api-interface)
   * [Use as a Docker image](#use-as-a-docker-image)
   * [Use as a library in Go](#use-as-a-library-in-go)
@@ -489,7 +491,18 @@ Note that you have to use `--stream -s` flag for this approach to work.
 ### R language package
 
 For R language it is possible to use [`rgnparser` package][rgnparser]. It
-implements mentioned above `pipes` method.
+implements mentioned above `pipes` method. It does require `gnparser` app
+be installed.
+
+### Ruby Gem
+
+Ruby developers can use `GNparser` functionality via [biodiversity] gem. It
+uses C-binding and does not require an installed `gnparser` app.
+
+### Node.js
+
+@tobymarsden created a [wrapper for node.js][node-gnparser]. It uses C-binding
+and does not require an installed `gnparser` app.
 
 ### Usage as a REST API Interface
 
@@ -642,6 +655,7 @@ Released under [MIT license]
 [biodiversity]: https://github.com/GlobalNamesArchitecture/biodiversity
 [export file]: https://github.com/gnames/gnparser/blob/master/binding/main.go
 [gna]: http://globalnames.org
+[node-gnparser]: https://github.com/amazingplants/node-gnparser
 [OpenAPI]: https://apidoc.globalnames.org/gnparser
 [gnparser ruby]: https://gitlab.com/gnames/gnparser_rb
 [gnparser-scala]: https://github.com/GlobalNamesArchitecture/gnparser
