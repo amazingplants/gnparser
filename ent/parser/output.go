@@ -14,6 +14,7 @@ func (sn *scientificNameNode) ToOutput(withDetails bool) parsed.Parsed {
 		Verbatim:      sn.verbatim,
 		Canonical:     sn.Canonical(),
 		Virus:         sn.virus,
+		DaggerChar:    sn.daggerChar,
 		VerbatimID:    sn.verbatimID,
 		ParserVersion: sn.parserVersion,
 	}
@@ -34,6 +35,10 @@ func (sn *scientificNameNode) ToOutput(withDetails bool) parsed.Parsed {
 	if withDetails {
 		res.Details = sn.Details()
 		res.Words = sn.Words()
+	}
+
+	if sn.ambiguousEpithet != "" {
+		res.RestoreAmbiguous(sn.ambiguousEpithet, sn.ambiguousModif)
 	}
 	return res
 }
@@ -90,7 +95,7 @@ func prepareWarnings(ws map[parsed.Warning]struct{}) []parsed.QualityWarning {
 		if res[i].Quality < res[j].Quality {
 			return false
 		}
-		return res[i].Warning < res[j].Warning
+		return res[i].Warning.String() < res[j].Warning.String()
 	})
 	return res
 }

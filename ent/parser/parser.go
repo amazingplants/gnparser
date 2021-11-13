@@ -64,6 +64,7 @@ func (p *Engine) PreprocessAndParse(
 	preproc := preprocess.Preprocess([]byte(s))
 
 	defer func() {
+		p.sn.daggerChar = preproc.DaggerChar
 		if len(preproc.Tail) > 0 {
 			p.sn.tail += string(preproc.Tail)
 		}
@@ -75,6 +76,10 @@ func (p *Engine) PreprocessAndParse(
 				p.sn.surrogate = &annot
 			}
 		}
+
+		p.sn.ambiguousEpithet = preproc.Ambiguous.Orig
+		p.sn.ambiguousModif = preproc.Ambiguous.Subst
+
 		p.sn.warnings = p.warnings
 		p.sn.addVerbatim(originalString)
 		p.sn.parserVersion = ver

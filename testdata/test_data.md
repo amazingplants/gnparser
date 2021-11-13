@@ -20,15 +20,19 @@
   * [Infraspecies with rank (ICN)](#infraspecies-with-rank-icn)
   * [Infraspecies multiple (ICN)](#infraspecies-multiple-icn)
   * [Infraspecies with greek letters (ICN)](#infraspecies-with-greek-letters-icn)
+  * [Names with the dagger char '†'](#names-with-the-dagger-char-)
   * [Hybrids with notho- ranks](#hybrids-with-notho--ranks)
   * [Named hybrids](#named-hybrids)
   * [Hybrid formulae](#hybrid-formulae)
+  * [Graft-chimeras](#graft-chimeras)
   * [Genus with hyphen (allowed by ICN)](#genus-with-hyphen-allowed-by-icn)
   * [Misspeled name](#misspeled-name)
   * [A 'basionym' author in parenthesis (basionym is an ICN term)](#a-basionym-author-in-parenthesis-basionym-is-an-icn-term)
   * [Infrageneric epithets (ICZN)](#infrageneric-epithets-iczn)
   * [Names with multiple dashes in specific epithet](#names-with-multiple-dashes-in-specific-epithet)
   * [Genus with question mark](#genus-with-question-mark)
+  * [Epithets with a period character](#epithets-with-a-period-character)
+  * [Epithets starting with non-](#epithets-starting-with-non-)
   * [Epithets starting with authors' prefixes (de, di, la, von etc.)](#epithets-starting-with-authors-prefixes-de-di-la-von-etc)
   * [Authorship missing one parenthesis](#authorship-missing-one-parenthesis)
   * [Unknown authorship](#unknown-authorship)
@@ -87,6 +91,9 @@
   * [Removing nomenclatural annotations](#removing-nomenclatural-annotations)
   * [Misc annotations](#misc-annotations)
   * [Horticultural annotation](#horticultural-annotation)
+  * [Exceptions from ranks (rank-line epithets)](#exceptions-from-ranks-rank-line-epithets)
+  * [Exceptions from author prefixes (prefix-like epithets)](#exceptions-from-author-prefixes-prefix-like-epithets)
+  * [Exceptions from author suffixes (suffix-like epithets)](#exceptions-from-author-suffixes-suffix-like-epithets)
   * [Not parsed OCR errors to get better precision/recall ratio](#not-parsed-ocr-errors-to-get-better-precisionrecall-ratio)
   * [No parsing -- Genera abbreviated to 3 letters (too rare)](#no-parsing----genera-abbreviated-to-3-letters-too-rare)
   * [No parsing -- incertae sedis](#no-parsing----incertae-sedis)
@@ -149,7 +156,7 @@ Name: Tremoctopus violaceus delle Chiaje, 1830
 
 Canonical: Tremoctopus violaceus
 
-Authorship: delle Chiaje, 1830
+Authorship: delle Chiaje 1830
 
 ```json
 {"parsed":true,"quality":1,"verbatim":"Tremoctopus violaceus delle Chiaje, 1830","normalized":"Tremoctopus violaceus delle Chiaje 1830","canonical":{"stemmed":"Tremoctopus uiolace","simple":"Tremoctopus violaceus","full":"Tremoctopus violaceus"},"cardinality":2,"authorship":{"verbatim":"delle Chiaje, 1830","normalized":"delle Chiaje 1830","year":"1830","authors":["delle Chiaje"],"originalAuth":{"authors":["delle Chiaje"],"year":{"year":"1830"}}},"details":{"species":{"genus":"Tremoctopus","species":"violaceus","authorship":{"verbatim":"delle Chiaje, 1830","normalized":"delle Chiaje 1830","year":"1830","authors":["delle Chiaje"],"originalAuth":{"authors":["delle Chiaje"],"year":{"year":"1830"}}}}},"words":[{"verbatim":"Tremoctopus","normalized":"Tremoctopus","wordType":"GENUS","start":0,"end":11},{"verbatim":"violaceus","normalized":"violaceus","wordType":"SPECIES","start":12,"end":21},{"verbatim":"delle","normalized":"delle","wordType":"AUTHOR_WORD","start":22,"end":27},{"verbatim":"Chiaje","normalized":"Chiaje","wordType":"AUTHOR_WORD","start":28,"end":34},{"verbatim":"1830","normalized":"1830","wordType":"YEAR","start":36,"end":40}],"id":"0543be2c-c14c-57e3-9529-570446ee1de4","parserVersion":"test_version"}
@@ -159,7 +166,7 @@ Name: Protis hydrothermica ten Hove & Zibrowius, 1986
 
 Canonical: Protis hydrothermica
 
-Authorship: ten Hove & Zibrowius, 1986
+Authorship: ten Hove & Zibrowius 1986
 
 ```json
 {"parsed":true,"quality":1,"verbatim":"Protis hydrothermica ten Hove \u0026 Zibrowius, 1986","normalized":"Protis hydrothermica ten Hove \u0026 Zibrowius 1986","canonical":{"stemmed":"Protis hydrothermic","simple":"Protis hydrothermica","full":"Protis hydrothermica"},"cardinality":2,"authorship":{"verbatim":"ten Hove \u0026 Zibrowius, 1986","normalized":"ten Hove \u0026 Zibrowius 1986","year":"1986","authors":["ten Hove","Zibrowius"],"originalAuth":{"authors":["ten Hove","Zibrowius"],"year":{"year":"1986"}}},"details":{"species":{"genus":"Protis","species":"hydrothermica","authorship":{"verbatim":"ten Hove \u0026 Zibrowius, 1986","normalized":"ten Hove \u0026 Zibrowius 1986","year":"1986","authors":["ten Hove","Zibrowius"],"originalAuth":{"authors":["ten Hove","Zibrowius"],"year":{"year":"1986"}}}}},"words":[{"verbatim":"Protis","normalized":"Protis","wordType":"GENUS","start":0,"end":6},{"verbatim":"hydrothermica","normalized":"hydrothermica","wordType":"SPECIES","start":7,"end":20},{"verbatim":"ten","normalized":"ten","wordType":"AUTHOR_WORD","start":21,"end":24},{"verbatim":"Hove","normalized":"Hove","wordType":"AUTHOR_WORD","start":25,"end":29},{"verbatim":"Zibrowius","normalized":"Zibrowius","wordType":"AUTHOR_WORD","start":32,"end":41},{"verbatim":"1986","normalized":"1986","wordType":"YEAR","start":43,"end":47}],"id":"ef360f20-b14a-5eb2-a9ce-a5089956758b","parserVersion":"test_version"}
@@ -685,7 +692,7 @@ Canonical: Pereskia subgen. Maihuenia
 Authorship: Philippi ex F. A. C. Weber 1898
 
 ```json
-{"parsed":true,"quality":2,"qualityWarnings":[{"quality":2,"warning":"Ex authors are not required"},{"quality":2,"warning":"Combination of two uninomials"}],"verbatim":"Pereskia subg. Maihuenia Philippi ex F.A.C.Weber, 1898","normalized":"Pereskia subgen. Maihuenia Philippi ex F. A. C. Weber 1898","canonical":{"stemmed":"Maihuenia","simple":"Maihuenia","full":"Pereskia subgen. Maihuenia"},"cardinality":1,"authorship":{"verbatim":"Philippi ex F.A.C.Weber, 1898","normalized":"Philippi ex F. A. C. Weber 1898","authors":["Philippi"],"originalAuth":{"authors":["Philippi"],"exAuthors":{"authors":["F. A. C. Weber"],"year":{"year":"1898"}}}},"details":{"uninomial":{"uninomial":"Maihuenia","rank":"subgen.","parent":"Pereskia","authorship":{"verbatim":"Philippi ex F.A.C.Weber, 1898","normalized":"Philippi ex F. A. C. Weber 1898","authors":["Philippi"],"originalAuth":{"authors":["Philippi"],"exAuthors":{"authors":["F. A. C. Weber"],"year":{"year":"1898"}}}}}},"words":[{"verbatim":"Pereskia","normalized":"Pereskia","wordType":"UNINOMIAL","start":0,"end":8},{"verbatim":"subg.","normalized":"subgen.","wordType":"RANK","start":9,"end":14},{"verbatim":"Maihuenia","normalized":"Maihuenia","wordType":"UNINOMIAL","start":15,"end":24},{"verbatim":"Philippi","normalized":"Philippi","wordType":"AUTHOR_WORD","start":25,"end":33},{"verbatim":"F.","normalized":"F.","wordType":"AUTHOR_WORD","start":37,"end":39},{"verbatim":"A.","normalized":"A.","wordType":"AUTHOR_WORD","start":39,"end":41},{"verbatim":"C.","normalized":"C.","wordType":"AUTHOR_WORD","start":41,"end":43},{"verbatim":"Weber","normalized":"Weber","wordType":"AUTHOR_WORD","start":43,"end":48},{"verbatim":"1898","normalized":"1898","wordType":"YEAR","start":50,"end":54}],"id":"344bd8c1-a4d2-5120-a738-0903aafad63d","parserVersion":"test_version"}
+{"parsed":true,"quality":2,"qualityWarnings":[{"quality":2,"warning":"Combination of two uninomials"},{"quality":2,"warning":"Ex authors are not required"}],"verbatim":"Pereskia subg. Maihuenia Philippi ex F.A.C.Weber, 1898","normalized":"Pereskia subgen. Maihuenia Philippi ex F. A. C. Weber 1898","canonical":{"stemmed":"Maihuenia","simple":"Maihuenia","full":"Pereskia subgen. Maihuenia"},"cardinality":1,"authorship":{"verbatim":"Philippi ex F.A.C.Weber, 1898","normalized":"Philippi ex F. A. C. Weber 1898","authors":["Philippi"],"originalAuth":{"authors":["Philippi"],"exAuthors":{"authors":["F. A. C. Weber"],"year":{"year":"1898"}}}},"details":{"uninomial":{"uninomial":"Maihuenia","rank":"subgen.","parent":"Pereskia","authorship":{"verbatim":"Philippi ex F.A.C.Weber, 1898","normalized":"Philippi ex F. A. C. Weber 1898","authors":["Philippi"],"originalAuth":{"authors":["Philippi"],"exAuthors":{"authors":["F. A. C. Weber"],"year":{"year":"1898"}}}}}},"words":[{"verbatim":"Pereskia","normalized":"Pereskia","wordType":"UNINOMIAL","start":0,"end":8},{"verbatim":"subg.","normalized":"subgen.","wordType":"RANK","start":9,"end":14},{"verbatim":"Maihuenia","normalized":"Maihuenia","wordType":"UNINOMIAL","start":15,"end":24},{"verbatim":"Philippi","normalized":"Philippi","wordType":"AUTHOR_WORD","start":25,"end":33},{"verbatim":"F.","normalized":"F.","wordType":"AUTHOR_WORD","start":37,"end":39},{"verbatim":"A.","normalized":"A.","wordType":"AUTHOR_WORD","start":39,"end":41},{"verbatim":"C.","normalized":"C.","wordType":"AUTHOR_WORD","start":41,"end":43},{"verbatim":"Weber","normalized":"Weber","wordType":"AUTHOR_WORD","start":43,"end":48},{"verbatim":"1898","normalized":"1898","wordType":"YEAR","start":50,"end":54}],"id":"344bd8c1-a4d2-5120-a738-0903aafad63d","parserVersion":"test_version"}
 ```
 
 Name: Aconitum ser. Tangutica W.T. Wang
@@ -716,6 +723,26 @@ Authorship: Brooker
 
 ```json
 {"parsed":true,"quality":2,"qualityWarnings":[{"quality":2,"warning":"Combination of two uninomials"}],"verbatim":"Eucalyptus subser. Regulares Brooker","normalized":"Eucalyptus subser. Regulares Brooker","canonical":{"stemmed":"Regulares","simple":"Regulares","full":"Eucalyptus subser. Regulares"},"cardinality":1,"authorship":{"verbatim":"Brooker","normalized":"Brooker","authors":["Brooker"],"originalAuth":{"authors":["Brooker"]}},"details":{"uninomial":{"uninomial":"Regulares","rank":"subser.","parent":"Eucalyptus","authorship":{"verbatim":"Brooker","normalized":"Brooker","authors":["Brooker"],"originalAuth":{"authors":["Brooker"]}}}},"words":[{"verbatim":"Eucalyptus","normalized":"Eucalyptus","wordType":"UNINOMIAL","start":0,"end":10},{"verbatim":"subser.","normalized":"subser.","wordType":"RANK","start":11,"end":18},{"verbatim":"Regulares","normalized":"Regulares","wordType":"UNINOMIAL","start":19,"end":28},{"verbatim":"Brooker","normalized":"Brooker","wordType":"AUTHOR_WORD","start":29,"end":36}],"id":"783aa15c-f54f-5233-b792-16774a21a34d","parserVersion":"test_version"}
+```
+
+Name: Rosa div. Caninae Lindl.
+
+Canonical: Rosa div. Caninae
+
+Authorship: Lindl.
+
+```json
+{"parsed":true,"quality":2,"qualityWarnings":[{"quality":2,"warning":"Combination of two uninomials"}],"verbatim":"Rosa div. Caninae Lindl.","normalized":"Rosa div. Caninae Lindl.","canonical":{"stemmed":"Caninae","simple":"Caninae","full":"Rosa div. Caninae"},"cardinality":1,"authorship":{"verbatim":"Lindl.","normalized":"Lindl.","authors":["Lindl."],"originalAuth":{"authors":["Lindl."]}},"details":{"uninomial":{"uninomial":"Caninae","rank":"div.","parent":"Rosa","authorship":{"verbatim":"Lindl.","normalized":"Lindl.","authors":["Lindl."],"originalAuth":{"authors":["Lindl."]}}}},"words":[{"verbatim":"Rosa","normalized":"Rosa","wordType":"UNINOMIAL","start":0,"end":4},{"verbatim":"div.","normalized":"div.","wordType":"RANK","start":5,"end":9},{"verbatim":"Caninae","normalized":"Caninae","wordType":"UNINOMIAL","start":10,"end":17},{"verbatim":"Lindl.","normalized":"Lindl.","wordType":"AUTHOR_WORD","start":18,"end":24}],"id":"e48a933f-93e2-5839-aae9-33b83bc046d1","parserVersion":"test_version"}
+```
+
+Name: Rosa div Caninae Lindl.
+
+Canonical: Rosa div Caninae
+
+Authorship: Lindl.
+
+```json
+{"parsed":true,"quality":2,"qualityWarnings":[{"quality":2,"warning":"Combination of two uninomials"}],"verbatim":"Rosa div Caninae Lindl.","normalized":"Rosa div Caninae Lindl.","canonical":{"stemmed":"Caninae","simple":"Caninae","full":"Rosa div Caninae"},"cardinality":1,"authorship":{"verbatim":"Lindl.","normalized":"Lindl.","authors":["Lindl."],"originalAuth":{"authors":["Lindl."]}},"details":{"uninomial":{"uninomial":"Caninae","rank":"div","parent":"Rosa","authorship":{"verbatim":"Lindl.","normalized":"Lindl.","authors":["Lindl."],"originalAuth":{"authors":["Lindl."]}}}},"words":[{"verbatim":"Rosa","normalized":"Rosa","wordType":"UNINOMIAL","start":0,"end":4},{"verbatim":"div","normalized":"div","wordType":"RANK","start":5,"end":8},{"verbatim":"Caninae","normalized":"Caninae","wordType":"UNINOMIAL","start":9,"end":16},{"verbatim":"Lindl.","normalized":"Lindl.","wordType":"AUTHOR_WORD","start":17,"end":23}],"id":"39b7a4e3-9184-5994-bbb8-b1508c420f7e","parserVersion":"test_version"}
 ```
 
 Name: Aaleniella (Danocythere)
@@ -810,7 +837,7 @@ Canonical: Pseudocercospora dendrobii
 Authorship:
 
 ```json
-{"parsed":true,"quality":2,"qualityWarnings":[{"quality":2,"warning":"Multiple adjacent space characters"}],"verbatim":"Pseudocercospora     dendrobii","normalized":"Pseudocercospora dendrobii","canonical":{"stemmed":"Pseudocercospora dendrobi","simple":"Pseudocercospora dendrobii","full":"Pseudocercospora dendrobii"},"cardinality":2,"details":{"species":{"genus":"Pseudocercospora","species":"dendrobii"}},"words":[{"verbatim":"Pseudocercospora","normalized":"Pseudocercospora","wordType":"GENUS","start":0,"end":16},{"verbatim":"dendrobii","normalized":"dendrobii","wordType":"SPECIES","start":21,"end":30}],"id":"5b320aa4-d417-5eda-be2d-83632e0d3624","parserVersion":"test_version"}
+{"parsed":true,"quality":1,"verbatim":"Pseudocercospora     dendrobii","normalized":"Pseudocercospora dendrobii","canonical":{"stemmed":"Pseudocercospora dendrobi","simple":"Pseudocercospora dendrobii","full":"Pseudocercospora dendrobii"},"cardinality":2,"details":{"species":{"genus":"Pseudocercospora","species":"dendrobii"}},"words":[{"verbatim":"Pseudocercospora","normalized":"Pseudocercospora","wordType":"GENUS","start":0,"end":16},{"verbatim":"dendrobii","normalized":"dendrobii","wordType":"SPECIES","start":21,"end":30}],"id":"5b320aa4-d417-5eda-be2d-83632e0d3624","parserVersion":"test_version"}
 ```
 
 Name: Cucurbita pepo
@@ -854,6 +881,56 @@ Authorship:
 ```
 
 ### Binomials with authorship
+
+Name: Cryptopleura farlowiana (J.Agardh) ver Steeg & Jossly
+
+Canonical: Cryptopleura farlowiana
+
+Authorship: (J. Agardh) ver Steeg & Jossly
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Cryptopleura farlowiana (J.Agardh) ver Steeg \u0026 Jossly","normalized":"Cryptopleura farlowiana (J. Agardh) ver Steeg \u0026 Jossly","canonical":{"stemmed":"Cryptopleura farlowian","simple":"Cryptopleura farlowiana","full":"Cryptopleura farlowiana"},"cardinality":2,"authorship":{"verbatim":"(J.Agardh) ver Steeg \u0026 Jossly","normalized":"(J. Agardh) ver Steeg \u0026 Jossly","authors":["J. Agardh","ver Steeg","Jossly"],"originalAuth":{"authors":["J. Agardh"]},"combinationAuth":{"authors":["ver Steeg","Jossly"]}},"details":{"species":{"genus":"Cryptopleura","species":"farlowiana","authorship":{"verbatim":"(J.Agardh) ver Steeg \u0026 Jossly","normalized":"(J. Agardh) ver Steeg \u0026 Jossly","authors":["J. Agardh","ver Steeg","Jossly"],"originalAuth":{"authors":["J. Agardh"]},"combinationAuth":{"authors":["ver Steeg","Jossly"]}}}},"words":[{"verbatim":"Cryptopleura","normalized":"Cryptopleura","wordType":"GENUS","start":0,"end":12},{"verbatim":"farlowiana","normalized":"farlowiana","wordType":"SPECIES","start":13,"end":23},{"verbatim":"J.","normalized":"J.","wordType":"AUTHOR_WORD","start":25,"end":27},{"verbatim":"Agardh","normalized":"Agardh","wordType":"AUTHOR_WORD","start":27,"end":33},{"verbatim":"ver","normalized":"ver","wordType":"AUTHOR_WORD","start":35,"end":38},{"verbatim":"Steeg","normalized":"Steeg","wordType":"AUTHOR_WORD","start":39,"end":44},{"verbatim":"Jossly","normalized":"Jossly","wordType":"AUTHOR_WORD","start":47,"end":53}],"id":"f9b3b9e2-b1f9-56bb-b0bf-fa8eab2c03dd","parserVersion":"test_version"}
+```
+
+Name: Pyxilla caput avis J.-J.Brun
+
+Canonical: Pyxilla caput avis
+
+Authorship: J.-J. Brun
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Pyxilla caput avis J.-J.Brun","normalized":"Pyxilla caput avis J.-J. Brun","canonical":{"stemmed":"Pyxilla caput au","simple":"Pyxilla caput avis","full":"Pyxilla caput avis"},"cardinality":3,"authorship":{"verbatim":"J.-J.Brun","normalized":"J.-J. Brun","authors":["J.-J. Brun"],"originalAuth":{"authors":["J.-J. Brun"]}},"details":{"infraspecies":{"genus":"Pyxilla","species":"caput","infraspecies":[{"value":"avis","authorship":{"verbatim":"J.-J.Brun","normalized":"J.-J. Brun","authors":["J.-J. Brun"],"originalAuth":{"authors":["J.-J. Brun"]}}}]}},"words":[{"verbatim":"Pyxilla","normalized":"Pyxilla","wordType":"GENUS","start":0,"end":7},{"verbatim":"caput","normalized":"caput","wordType":"SPECIES","start":8,"end":13},{"verbatim":"avis","normalized":"avis","wordType":"INFRASPECIES","start":14,"end":18},{"verbatim":"J.-J.","normalized":"J.-J.","wordType":"AUTHOR_WORD","start":19,"end":24},{"verbatim":"Brun","normalized":"Brun","wordType":"AUTHOR_WORD","start":24,"end":28}],"id":"f2cea9a2-23df-520c-b8a7-c25e50608676","parserVersion":"test_version"}
+```
+
+Name: Muscicapa randi Amadon & duPont, 1970
+
+Canonical: Muscicapa randi
+
+Authorship: Amadon & duPont 1970
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Muscicapa randi Amadon \u0026 duPont, 1970","normalized":"Muscicapa randi Amadon \u0026 duPont 1970","canonical":{"stemmed":"Muscicapa rand","simple":"Muscicapa randi","full":"Muscicapa randi"},"cardinality":2,"authorship":{"verbatim":"Amadon \u0026 duPont, 1970","normalized":"Amadon \u0026 duPont 1970","year":"1970","authors":["Amadon","duPont"],"originalAuth":{"authors":["Amadon","duPont"],"year":{"year":"1970"}}},"details":{"species":{"genus":"Muscicapa","species":"randi","authorship":{"verbatim":"Amadon \u0026 duPont, 1970","normalized":"Amadon \u0026 duPont 1970","year":"1970","authors":["Amadon","duPont"],"originalAuth":{"authors":["Amadon","duPont"],"year":{"year":"1970"}}}}},"words":[{"verbatim":"Muscicapa","normalized":"Muscicapa","wordType":"GENUS","start":0,"end":9},{"verbatim":"randi","normalized":"randi","wordType":"SPECIES","start":10,"end":15},{"verbatim":"Amadon","normalized":"Amadon","wordType":"AUTHOR_WORD","start":16,"end":22},{"verbatim":"duPont","normalized":"duPont","wordType":"AUTHOR_WORD","start":25,"end":31},{"verbatim":"1970","normalized":"1970","wordType":"YEAR","start":33,"end":37}],"id":"07e1f6ac-ab5f-5354-a690-69ed7a5394fc","parserVersion":"test_version"}
+```
+
+Name: Scytalopus alvarezlopezi Stiles, Laverde-R. & Cadena 2017
+
+Canonical: Scytalopus alvarezlopezi
+
+Authorship: Stiles, Laverde-R. & Cadena 2017
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Scytalopus alvarezlopezi Stiles, Laverde-R. \u0026 Cadena 2017","normalized":"Scytalopus alvarezlopezi Stiles, Laverde-R. \u0026 Cadena 2017","canonical":{"stemmed":"Scytalopus aluarezlopez","simple":"Scytalopus alvarezlopezi","full":"Scytalopus alvarezlopezi"},"cardinality":2,"authorship":{"verbatim":"Stiles, Laverde-R. \u0026 Cadena 2017","normalized":"Stiles, Laverde-R. \u0026 Cadena 2017","year":"2017","authors":["Stiles","Laverde-R.","Cadena"],"originalAuth":{"authors":["Stiles","Laverde-R.","Cadena"],"year":{"year":"2017"}}},"details":{"species":{"genus":"Scytalopus","species":"alvarezlopezi","authorship":{"verbatim":"Stiles, Laverde-R. \u0026 Cadena 2017","normalized":"Stiles, Laverde-R. \u0026 Cadena 2017","year":"2017","authors":["Stiles","Laverde-R.","Cadena"],"originalAuth":{"authors":["Stiles","Laverde-R.","Cadena"],"year":{"year":"2017"}}}}},"words":[{"verbatim":"Scytalopus","normalized":"Scytalopus","wordType":"GENUS","start":0,"end":10},{"verbatim":"alvarezlopezi","normalized":"alvarezlopezi","wordType":"SPECIES","start":11,"end":24},{"verbatim":"Stiles","normalized":"Stiles","wordType":"AUTHOR_WORD","start":25,"end":31},{"verbatim":"Laverde-R.","normalized":"Laverde-R.","wordType":"AUTHOR_WORD","start":33,"end":43},{"verbatim":"Cadena","normalized":"Cadena","wordType":"AUTHOR_WORD","start":46,"end":52},{"verbatim":"2017","normalized":"2017","wordType":"YEAR","start":53,"end":57}],"id":"bac0e1d6-411e-5d96-ad73-a3db20b9b1a0","parserVersion":"test_version"}
+```
+
+Name: Carabus (Tanaocarabus) hendrichsi Bolvar y Pieltain, Rotger & Coronado-G 1967
+
+Canonical: Carabus hendrichsi
+
+Authorship: Bolvar, Pieltain, Rotger & Coronado-G 1967
+
+```json
+{"parsed":true,"quality":2,"qualityWarnings":[{"quality":2,"warning":"Spanish 'y' is used instead of '&'"}],"verbatim":"Carabus (Tanaocarabus) hendrichsi Bolvar y Pieltain, Rotger \u0026 Coronado-G 1967","normalized":"Carabus (Tanaocarabus) hendrichsi Bolvar, Pieltain, Rotger \u0026 Coronado-G 1967","canonical":{"stemmed":"Carabus hendrichs","simple":"Carabus hendrichsi","full":"Carabus hendrichsi"},"cardinality":2,"authorship":{"verbatim":"Bolvar y Pieltain, Rotger \u0026 Coronado-G 1967","normalized":"Bolvar, Pieltain, Rotger \u0026 Coronado-G 1967","year":"1967","authors":["Bolvar","Pieltain","Rotger","Coronado-G"],"originalAuth":{"authors":["Bolvar","Pieltain","Rotger","Coronado-G"],"year":{"year":"1967"}}},"details":{"species":{"genus":"Carabus","subgenus":"Tanaocarabus","species":"hendrichsi","authorship":{"verbatim":"Bolvar y Pieltain, Rotger \u0026 Coronado-G 1967","normalized":"Bolvar, Pieltain, Rotger \u0026 Coronado-G 1967","year":"1967","authors":["Bolvar","Pieltain","Rotger","Coronado-G"],"originalAuth":{"authors":["Bolvar","Pieltain","Rotger","Coronado-G"],"year":{"year":"1967"}}}}},"words":[{"verbatim":"Carabus","normalized":"Carabus","wordType":"GENUS","start":0,"end":7},{"verbatim":"Tanaocarabus","normalized":"Tanaocarabus","wordType":"INFRA_GENUS","start":9,"end":21},{"verbatim":"hendrichsi","normalized":"hendrichsi","wordType":"SPECIES","start":23,"end":33},{"verbatim":"Bolvar","normalized":"Bolvar","wordType":"AUTHOR_WORD","start":34,"end":40},{"verbatim":"Pieltain","normalized":"Pieltain","wordType":"AUTHOR_WORD","start":43,"end":51},{"verbatim":"Rotger","normalized":"Rotger","wordType":"AUTHOR_WORD","start":53,"end":59},{"verbatim":"Coronado-G","normalized":"Coronado-G","wordType":"AUTHOR_WORD","start":62,"end":72},{"verbatim":"1967","normalized":"1967","wordType":"YEAR","start":73,"end":77}],"id":"7d2a6355-6f24-54a4-8a49-4c7510a07192","parserVersion":"test_version"}
+```
 
 Name: Nemcia epacridoides (Meissner)Crisp
 
@@ -909,7 +986,7 @@ Name: Laevapex vazi dos Santos, 1989
 
 Canonical: Laevapex vazi
 
-Authorship: dos Santos, 1989
+Authorship: dos Santos 1989
 
 ```json
 {"parsed":true,"quality":1,"verbatim":"Laevapex vazi dos Santos, 1989","normalized":"Laevapex vazi dos Santos 1989","canonical":{"stemmed":"Laevapex uaz","simple":"Laevapex vazi","full":"Laevapex vazi"},"cardinality":2,"authorship":{"verbatim":"dos Santos, 1989","normalized":"dos Santos 1989","year":"1989","authors":["dos Santos"],"originalAuth":{"authors":["dos Santos"],"year":{"year":"1989"}}},"details":{"species":{"genus":"Laevapex","species":"vazi","authorship":{"verbatim":"dos Santos, 1989","normalized":"dos Santos 1989","year":"1989","authors":["dos Santos"],"originalAuth":{"authors":["dos Santos"],"year":{"year":"1989"}}}}},"words":[{"verbatim":"Laevapex","normalized":"Laevapex","wordType":"GENUS","start":0,"end":8},{"verbatim":"vazi","normalized":"vazi","wordType":"SPECIES","start":9,"end":13},{"verbatim":"dos","normalized":"dos","wordType":"AUTHOR_WORD","start":14,"end":17},{"verbatim":"Santos","normalized":"Santos","wordType":"AUTHOR_WORD","start":18,"end":24},{"verbatim":"1989","normalized":"1989","wordType":"YEAR","start":26,"end":30}],"id":"34df1cb6-bba1-5115-8e9c-c27df4005291","parserVersion":"test_version"}
@@ -919,7 +996,7 @@ Name: Periclimenaeus aurae dos Santos, Calado & Araújo, 2008
 
 Canonical: Periclimenaeus aurae
 
-Authorship: dos Santos, Calado & Araújo, 2008
+Authorship: dos Santos, Calado & Araújo 2008
 
 ```json
 {"parsed":true,"quality":1,"verbatim":"Periclimenaeus aurae dos Santos, Calado \u0026 Araújo, 2008","normalized":"Periclimenaeus aurae dos Santos, Calado \u0026 Araújo 2008","canonical":{"stemmed":"Periclimenaeus aur","simple":"Periclimenaeus aurae","full":"Periclimenaeus aurae"},"cardinality":2,"authorship":{"verbatim":"dos Santos, Calado \u0026 Araújo, 2008","normalized":"dos Santos, Calado \u0026 Araújo 2008","year":"2008","authors":["dos Santos","Calado","Araújo"],"originalAuth":{"authors":["dos Santos","Calado","Araújo"],"year":{"year":"2008"}}},"details":{"species":{"genus":"Periclimenaeus","species":"aurae","authorship":{"verbatim":"dos Santos, Calado \u0026 Araújo, 2008","normalized":"dos Santos, Calado \u0026 Araújo 2008","year":"2008","authors":["dos Santos","Calado","Araújo"],"originalAuth":{"authors":["dos Santos","Calado","Araújo"],"year":{"year":"2008"}}}}},"words":[{"verbatim":"Periclimenaeus","normalized":"Periclimenaeus","wordType":"GENUS","start":0,"end":14},{"verbatim":"aurae","normalized":"aurae","wordType":"SPECIES","start":15,"end":20},{"verbatim":"dos","normalized":"dos","wordType":"AUTHOR_WORD","start":21,"end":24},{"verbatim":"Santos","normalized":"Santos","wordType":"AUTHOR_WORD","start":25,"end":31},{"verbatim":"Calado","normalized":"Calado","wordType":"AUTHOR_WORD","start":33,"end":39},{"verbatim":"Araújo","normalized":"Araújo","wordType":"AUTHOR_WORD","start":42,"end":48},{"verbatim":"2008","normalized":"2008","wordType":"YEAR","start":50,"end":54}],"id":"261677a4-e52c-5cdf-95f8-a1138404112c","parserVersion":"test_version"}
@@ -1089,7 +1166,7 @@ Name: Boreophilia nomensis (Casey, 1910)
 
 Canonical: Boreophilia nomensis
 
-Authorship: (Casey, 1910)
+Authorship: (Casey 1910)
 
 ```json
 {"parsed":true,"quality":1,"verbatim":"Boreophilia nomensis (Casey, 1910)","normalized":"Boreophilia nomensis (Casey 1910)","canonical":{"stemmed":"Boreophilia nomens","simple":"Boreophilia nomensis","full":"Boreophilia nomensis"},"cardinality":2,"authorship":{"verbatim":"(Casey, 1910)","normalized":"(Casey 1910)","year":"1910","authors":["Casey"],"originalAuth":{"authors":["Casey"],"year":{"year":"1910"}}},"details":{"species":{"genus":"Boreophilia","species":"nomensis","authorship":{"verbatim":"(Casey, 1910)","normalized":"(Casey 1910)","year":"1910","authors":["Casey"],"originalAuth":{"authors":["Casey"],"year":{"year":"1910"}}}}},"words":[{"verbatim":"Boreophilia","normalized":"Boreophilia","wordType":"GENUS","start":0,"end":11},{"verbatim":"nomensis","normalized":"nomensis","wordType":"SPECIES","start":12,"end":20},{"verbatim":"Casey","normalized":"Casey","wordType":"AUTHOR_WORD","start":22,"end":27},{"verbatim":"1910","normalized":"1910","wordType":"YEAR","start":29,"end":33}],"id":"3a0b09db-6e9b-513d-9d10-50b828c504f6","parserVersion":"test_version"}
@@ -1359,7 +1436,7 @@ Name: Kudoa amazonica Velasco, Sindeaux Neto, Videira, de Cássia Silva do Nasci
 
 Canonical: Kudoa amazonica
 
-Authorship: Velasco, Sindeaux Neto, Videira, de Cássia Silva do Nascimento, Gonçalves & Matos, 2019
+Authorship: Velasco, Sindeaux Neto, Videira, de Cássia Silva do Nascimento, Gonçalves & Matos 2019
 
 ```json
 {"parsed":true,"quality":1,"verbatim":"Kudoa amazonica Velasco, Sindeaux Neto, Videira, de Cássia Silva do Nascimento, Gonçalves \u0026 Matos, 2019","normalized":"Kudoa amazonica Velasco, Sindeaux Neto, Videira, de Cássia Silva do Nascimento, Gonçalves \u0026 Matos 2019","canonical":{"stemmed":"Kudoa amazonic","simple":"Kudoa amazonica","full":"Kudoa amazonica"},"cardinality":2,"authorship":{"verbatim":"Velasco, Sindeaux Neto, Videira, de Cássia Silva do Nascimento, Gonçalves \u0026 Matos, 2019","normalized":"Velasco, Sindeaux Neto, Videira, de Cássia Silva do Nascimento, Gonçalves \u0026 Matos 2019","year":"2019","authors":["Velasco","Sindeaux Neto","Videira","de Cássia Silva do Nascimento","Gonçalves","Matos"],"originalAuth":{"authors":["Velasco","Sindeaux Neto","Videira","de Cássia Silva do Nascimento","Gonçalves","Matos"],"year":{"year":"2019"}}},"details":{"species":{"genus":"Kudoa","species":"amazonica","authorship":{"verbatim":"Velasco, Sindeaux Neto, Videira, de Cássia Silva do Nascimento, Gonçalves \u0026 Matos, 2019","normalized":"Velasco, Sindeaux Neto, Videira, de Cássia Silva do Nascimento, Gonçalves \u0026 Matos 2019","year":"2019","authors":["Velasco","Sindeaux Neto","Videira","de Cássia Silva do Nascimento","Gonçalves","Matos"],"originalAuth":{"authors":["Velasco","Sindeaux Neto","Videira","de Cássia Silva do Nascimento","Gonçalves","Matos"],"year":{"year":"2019"}}}}},"words":[{"verbatim":"Kudoa","normalized":"Kudoa","wordType":"GENUS","start":0,"end":5},{"verbatim":"amazonica","normalized":"amazonica","wordType":"SPECIES","start":6,"end":15},{"verbatim":"Velasco","normalized":"Velasco","wordType":"AUTHOR_WORD","start":16,"end":23},{"verbatim":"Sindeaux","normalized":"Sindeaux","wordType":"AUTHOR_WORD","start":25,"end":33},{"verbatim":"Neto","normalized":"Neto","wordType":"AUTHOR_WORD","start":34,"end":38},{"verbatim":"Videira","normalized":"Videira","wordType":"AUTHOR_WORD","start":40,"end":47},{"verbatim":"de","normalized":"de","wordType":"AUTHOR_WORD","start":49,"end":51},{"verbatim":"Cássia","normalized":"Cássia","wordType":"AUTHOR_WORD","start":52,"end":58},{"verbatim":"Silva","normalized":"Silva","wordType":"AUTHOR_WORD","start":59,"end":64},{"verbatim":"do","normalized":"do","wordType":"AUTHOR_WORD","start":65,"end":67},{"verbatim":"Nascimento","normalized":"Nascimento","wordType":"AUTHOR_WORD","start":68,"end":78},{"verbatim":"Gonçalves","normalized":"Gonçalves","wordType":"AUTHOR_WORD","start":80,"end":89},{"verbatim":"Matos","normalized":"Matos","wordType":"AUTHOR_WORD","start":92,"end":97},{"verbatim":"2019","normalized":"2019","wordType":"YEAR","start":99,"end":103}],"id":"331fe77e-4a0e-555a-90ef-2874b72e5c7f","parserVersion":"test_version"}
@@ -1369,7 +1446,7 @@ Name: Branchinecta papillata Rogers, de los Rios & Zuniga, 2008
 
 Canonical: Branchinecta papillata
 
-Authorship: Rogers, de los Rios & Zuniga, 2008
+Authorship: Rogers, de los Rios & Zuniga 2008
 
 ```json
 {"parsed":true,"quality":1,"verbatim":"Branchinecta papillata Rogers, de los Rios \u0026 Zuniga, 2008","normalized":"Branchinecta papillata Rogers, de los Rios \u0026 Zuniga 2008","canonical":{"stemmed":"Branchinecta papillat","simple":"Branchinecta papillata","full":"Branchinecta papillata"},"cardinality":2,"authorship":{"verbatim":"Rogers, de los Rios \u0026 Zuniga, 2008","normalized":"Rogers, de los Rios \u0026 Zuniga 2008","year":"2008","authors":["Rogers","de los Rios","Zuniga"],"originalAuth":{"authors":["Rogers","de los Rios","Zuniga"],"year":{"year":"2008"}}},"details":{"species":{"genus":"Branchinecta","species":"papillata","authorship":{"verbatim":"Rogers, de los Rios \u0026 Zuniga, 2008","normalized":"Rogers, de los Rios \u0026 Zuniga 2008","year":"2008","authors":["Rogers","de los Rios","Zuniga"],"originalAuth":{"authors":["Rogers","de los Rios","Zuniga"],"year":{"year":"2008"}}}}},"words":[{"verbatim":"Branchinecta","normalized":"Branchinecta","wordType":"GENUS","start":0,"end":12},{"verbatim":"papillata","normalized":"papillata","wordType":"SPECIES","start":13,"end":22},{"verbatim":"Rogers","normalized":"Rogers","wordType":"AUTHOR_WORD","start":23,"end":29},{"verbatim":"de los","normalized":"de los","wordType":"AUTHOR_WORD","start":31,"end":37},{"verbatim":"Rios","normalized":"Rios","wordType":"AUTHOR_WORD","start":38,"end":42},{"verbatim":"Zuniga","normalized":"Zuniga","wordType":"AUTHOR_WORD","start":45,"end":51},{"verbatim":"2008","normalized":"2008","wordType":"YEAR","start":53,"end":57}],"id":"220f3428-87b9-5455-9b71-4998c9ccfd00","parserVersion":"test_version"}
@@ -1379,7 +1456,7 @@ Name: Echiophis brunneus (Castro-Aguirre & Suárez de los Cobos, 1983)
 
 Canonical: Echiophis brunneus
 
-Authorship: (Castro-Aguirre & Suárez de los Cobos, 1983)
+Authorship: (Castro-Aguirre & Suárez de los Cobos 1983)
 
 ```json
 {"parsed":true,"quality":1,"verbatim":"Echiophis brunneus (Castro-Aguirre \u0026 Suárez de los Cobos, 1983)","normalized":"Echiophis brunneus (Castro-Aguirre \u0026 Suárez de los Cobos 1983)","canonical":{"stemmed":"Echiophis brunne","simple":"Echiophis brunneus","full":"Echiophis brunneus"},"cardinality":2,"authorship":{"verbatim":"(Castro-Aguirre \u0026 Suárez de los Cobos, 1983)","normalized":"(Castro-Aguirre \u0026 Suárez de los Cobos 1983)","year":"1983","authors":["Castro-Aguirre","Suárez de los Cobos"],"originalAuth":{"authors":["Castro-Aguirre","Suárez de los Cobos"],"year":{"year":"1983"}}},"details":{"species":{"genus":"Echiophis","species":"brunneus","authorship":{"verbatim":"(Castro-Aguirre \u0026 Suárez de los Cobos, 1983)","normalized":"(Castro-Aguirre \u0026 Suárez de los Cobos 1983)","year":"1983","authors":["Castro-Aguirre","Suárez de los Cobos"],"originalAuth":{"authors":["Castro-Aguirre","Suárez de los Cobos"],"year":{"year":"1983"}}}}},"words":[{"verbatim":"Echiophis","normalized":"Echiophis","wordType":"GENUS","start":0,"end":9},{"verbatim":"brunneus","normalized":"brunneus","wordType":"SPECIES","start":10,"end":18},{"verbatim":"Castro-Aguirre","normalized":"Castro-Aguirre","wordType":"AUTHOR_WORD","start":20,"end":34},{"verbatim":"Suárez","normalized":"Suárez","wordType":"AUTHOR_WORD","start":37,"end":43},{"verbatim":"de los","normalized":"de los","wordType":"AUTHOR_WORD","start":44,"end":50},{"verbatim":"Cobos","normalized":"Cobos","wordType":"AUTHOR_WORD","start":51,"end":56},{"verbatim":"1983","normalized":"1983","wordType":"YEAR","start":58,"end":62}],"id":"18d6069c-8c76-5a7a-8400-511777462b09","parserVersion":"test_version"}
@@ -1436,7 +1513,7 @@ Canonical: Bosmina coregoni × Bosmina longispina
 Authorship:
 
 ```json
-{"parsed":true,"quality":4,"qualityWarnings":[{"quality":4,"warning":"Abbreviated uninomial word"},{"quality":2,"warning":"Hybrid formula"},{"quality":2,"warning":"Abbreviated subgenus"}],"verbatim":"Bosmina (Eubosmina) coregoni x B. (E.) longispina","normalized":"Bosmina (Eubosmina) coregoni × Bosmina (E.) longispina","canonical":{"stemmed":"Bosmina coregon × Bosmina longispin","simple":"Bosmina coregoni × Bosmina longispina","full":"Bosmina coregoni × Bosmina longispina"},"cardinality":0,"hybrid":"HYBRID_FORMULA","details":{"hybridFormula":[{"species":{"genus":"Bosmina","subgenus":"Eubosmina","species":"coregoni"}},{"species":{"genus":"Bosmina","subgenus":"E.","species":"longispina"}}]},"words":[{"verbatim":"Bosmina","normalized":"Bosmina","wordType":"GENUS","start":0,"end":7},{"verbatim":"Eubosmina","normalized":"Eubosmina","wordType":"INFRA_GENUS","start":9,"end":18},{"verbatim":"coregoni","normalized":"coregoni","wordType":"SPECIES","start":20,"end":28},{"verbatim":"x","normalized":"×","wordType":"HYBRID_CHAR","start":29,"end":30},{"verbatim":"B.","normalized":"Bosmina","wordType":"GENUS","start":31,"end":33},{"verbatim":"E.","normalized":"E.","wordType":"INFRA_GENUS","start":35,"end":37},{"verbatim":"longispina","normalized":"longispina","wordType":"SPECIES","start":39,"end":49}],"id":"71c160bf-428b-5b51-9d97-0965686033bc","parserVersion":"test_version"}
+{"parsed":true,"quality":4,"qualityWarnings":[{"quality":4,"warning":"Abbreviated uninomial word"},{"quality":2,"warning":"Abbreviated subgenus"},{"quality":2,"warning":"Hybrid formula"}],"verbatim":"Bosmina (Eubosmina) coregoni x B. (E.) longispina","normalized":"Bosmina (Eubosmina) coregoni × Bosmina (E.) longispina","canonical":{"stemmed":"Bosmina coregon × Bosmina longispin","simple":"Bosmina coregoni × Bosmina longispina","full":"Bosmina coregoni × Bosmina longispina"},"cardinality":0,"hybrid":"HYBRID_FORMULA","details":{"hybridFormula":[{"species":{"genus":"Bosmina","subgenus":"Eubosmina","species":"coregoni"}},{"species":{"genus":"Bosmina","subgenus":"E.","species":"longispina"}}]},"words":[{"verbatim":"Bosmina","normalized":"Bosmina","wordType":"GENUS","start":0,"end":7},{"verbatim":"Eubosmina","normalized":"Eubosmina","wordType":"INFRA_GENUS","start":9,"end":18},{"verbatim":"coregoni","normalized":"coregoni","wordType":"SPECIES","start":20,"end":28},{"verbatim":"x","normalized":"×","wordType":"HYBRID_CHAR","start":29,"end":30},{"verbatim":"B.","normalized":"Bosmina","wordType":"GENUS","start":31,"end":33},{"verbatim":"E.","normalized":"E.","wordType":"INFRA_GENUS","start":35,"end":37},{"verbatim":"longispina","normalized":"longispina","wordType":"SPECIES","start":39,"end":49}],"id":"71c160bf-428b-5b51-9d97-0965686033bc","parserVersion":"test_version"}
 ```
 
 Name: Simia (Cercop.) nasuus Kerr 1792
@@ -1469,7 +1546,7 @@ Canonical: Pseudocercospora dendrobii
 Authorship: (H. C. Burnett) U. Braun & Crous 2003
 
 ```json
-{"parsed":true,"quality":2,"qualityWarnings":[{"quality":2,"warning":"Multiple adjacent space characters"}],"verbatim":"Pseudocercospora dendrobii(H.C.     Burnett)U. Braun \u0026 Crous     2003","normalized":"Pseudocercospora dendrobii (H. C. Burnett) U. Braun \u0026 Crous 2003","canonical":{"stemmed":"Pseudocercospora dendrobi","simple":"Pseudocercospora dendrobii","full":"Pseudocercospora dendrobii"},"cardinality":2,"authorship":{"verbatim":"(H.C.     Burnett)U. Braun \u0026 Crous     2003","normalized":"(H. C. Burnett) U. Braun \u0026 Crous 2003","authors":["H. C. Burnett","U. Braun","Crous"],"originalAuth":{"authors":["H. C. Burnett"]},"combinationAuth":{"authors":["U. Braun","Crous"],"year":{"year":"2003"}}},"details":{"species":{"genus":"Pseudocercospora","species":"dendrobii","authorship":{"verbatim":"(H.C.     Burnett)U. Braun \u0026 Crous     2003","normalized":"(H. C. Burnett) U. Braun \u0026 Crous 2003","authors":["H. C. Burnett","U. Braun","Crous"],"originalAuth":{"authors":["H. C. Burnett"]},"combinationAuth":{"authors":["U. Braun","Crous"],"year":{"year":"2003"}}}}},"words":[{"verbatim":"Pseudocercospora","normalized":"Pseudocercospora","wordType":"GENUS","start":0,"end":16},{"verbatim":"dendrobii","normalized":"dendrobii","wordType":"SPECIES","start":17,"end":26},{"verbatim":"H.","normalized":"H.","wordType":"AUTHOR_WORD","start":27,"end":29},{"verbatim":"C.","normalized":"C.","wordType":"AUTHOR_WORD","start":29,"end":31},{"verbatim":"Burnett","normalized":"Burnett","wordType":"AUTHOR_WORD","start":36,"end":43},{"verbatim":"U.","normalized":"U.","wordType":"AUTHOR_WORD","start":44,"end":46},{"verbatim":"Braun","normalized":"Braun","wordType":"AUTHOR_WORD","start":47,"end":52},{"verbatim":"Crous","normalized":"Crous","wordType":"AUTHOR_WORD","start":55,"end":60},{"verbatim":"2003","normalized":"2003","wordType":"YEAR","start":65,"end":69}],"id":"3c52bc21-3ac9-5be4-9d5f-1f84fe9d3325","parserVersion":"test_version"}
+{"parsed":true,"quality":1,"verbatim":"Pseudocercospora dendrobii(H.C.     Burnett)U. Braun \u0026 Crous     2003","normalized":"Pseudocercospora dendrobii (H. C. Burnett) U. Braun \u0026 Crous 2003","canonical":{"stemmed":"Pseudocercospora dendrobi","simple":"Pseudocercospora dendrobii","full":"Pseudocercospora dendrobii"},"cardinality":2,"authorship":{"verbatim":"(H.C.     Burnett)U. Braun \u0026 Crous     2003","normalized":"(H. C. Burnett) U. Braun \u0026 Crous 2003","authors":["H. C. Burnett","U. Braun","Crous"],"originalAuth":{"authors":["H. C. Burnett"]},"combinationAuth":{"authors":["U. Braun","Crous"],"year":{"year":"2003"}}},"details":{"species":{"genus":"Pseudocercospora","species":"dendrobii","authorship":{"verbatim":"(H.C.     Burnett)U. Braun \u0026 Crous     2003","normalized":"(H. C. Burnett) U. Braun \u0026 Crous 2003","authors":["H. C. Burnett","U. Braun","Crous"],"originalAuth":{"authors":["H. C. Burnett"]},"combinationAuth":{"authors":["U. Braun","Crous"],"year":{"year":"2003"}}}}},"words":[{"verbatim":"Pseudocercospora","normalized":"Pseudocercospora","wordType":"GENUS","start":0,"end":16},{"verbatim":"dendrobii","normalized":"dendrobii","wordType":"SPECIES","start":17,"end":26},{"verbatim":"H.","normalized":"H.","wordType":"AUTHOR_WORD","start":27,"end":29},{"verbatim":"C.","normalized":"C.","wordType":"AUTHOR_WORD","start":29,"end":31},{"verbatim":"Burnett","normalized":"Burnett","wordType":"AUTHOR_WORD","start":36,"end":43},{"verbatim":"U.","normalized":"U.","wordType":"AUTHOR_WORD","start":44,"end":46},{"verbatim":"Braun","normalized":"Braun","wordType":"AUTHOR_WORD","start":47,"end":52},{"verbatim":"Crous","normalized":"Crous","wordType":"AUTHOR_WORD","start":55,"end":60},{"verbatim":"2003","normalized":"2003","wordType":"YEAR","start":65,"end":69}],"id":"3c52bc21-3ac9-5be4-9d5f-1f84fe9d3325","parserVersion":"test_version"}
 ```
 
 Name: Pseudocercospora dendrobii(H.C.     Burnett, 1873)U. Braun & Crous     2003
@@ -1479,7 +1556,7 @@ Canonical: Pseudocercospora dendrobii
 Authorship: (H. C. Burnett 1873) U. Braun & Crous 2003
 
 ```json
-{"parsed":true,"quality":2,"qualityWarnings":[{"quality":2,"warning":"Multiple adjacent space characters"}],"verbatim":"Pseudocercospora dendrobii(H.C.     Burnett, 1873)U. Braun \u0026 Crous     2003","normalized":"Pseudocercospora dendrobii (H. C. Burnett 1873) U. Braun \u0026 Crous 2003","canonical":{"stemmed":"Pseudocercospora dendrobi","simple":"Pseudocercospora dendrobii","full":"Pseudocercospora dendrobii"},"cardinality":2,"authorship":{"verbatim":"(H.C.     Burnett, 1873)U. Braun \u0026 Crous     2003","normalized":"(H. C. Burnett 1873) U. Braun \u0026 Crous 2003","year":"1873","authors":["H. C. Burnett","U. Braun","Crous"],"originalAuth":{"authors":["H. C. Burnett"],"year":{"year":"1873"}},"combinationAuth":{"authors":["U. Braun","Crous"],"year":{"year":"2003"}}},"details":{"species":{"genus":"Pseudocercospora","species":"dendrobii","authorship":{"verbatim":"(H.C.     Burnett, 1873)U. Braun \u0026 Crous     2003","normalized":"(H. C. Burnett 1873) U. Braun \u0026 Crous 2003","year":"1873","authors":["H. C. Burnett","U. Braun","Crous"],"originalAuth":{"authors":["H. C. Burnett"],"year":{"year":"1873"}},"combinationAuth":{"authors":["U. Braun","Crous"],"year":{"year":"2003"}}}}},"words":[{"verbatim":"Pseudocercospora","normalized":"Pseudocercospora","wordType":"GENUS","start":0,"end":16},{"verbatim":"dendrobii","normalized":"dendrobii","wordType":"SPECIES","start":17,"end":26},{"verbatim":"H.","normalized":"H.","wordType":"AUTHOR_WORD","start":27,"end":29},{"verbatim":"C.","normalized":"C.","wordType":"AUTHOR_WORD","start":29,"end":31},{"verbatim":"Burnett","normalized":"Burnett","wordType":"AUTHOR_WORD","start":36,"end":43},{"verbatim":"1873","normalized":"1873","wordType":"YEAR","start":45,"end":49},{"verbatim":"U.","normalized":"U.","wordType":"AUTHOR_WORD","start":50,"end":52},{"verbatim":"Braun","normalized":"Braun","wordType":"AUTHOR_WORD","start":53,"end":58},{"verbatim":"Crous","normalized":"Crous","wordType":"AUTHOR_WORD","start":61,"end":66},{"verbatim":"2003","normalized":"2003","wordType":"YEAR","start":71,"end":75}],"id":"8e5dd168-d7f1-51e4-989c-cedb253d572c","parserVersion":"test_version"}
+{"parsed":true,"quality":1,"verbatim":"Pseudocercospora dendrobii(H.C.     Burnett, 1873)U. Braun \u0026 Crous     2003","normalized":"Pseudocercospora dendrobii (H. C. Burnett 1873) U. Braun \u0026 Crous 2003","canonical":{"stemmed":"Pseudocercospora dendrobi","simple":"Pseudocercospora dendrobii","full":"Pseudocercospora dendrobii"},"cardinality":2,"authorship":{"verbatim":"(H.C.     Burnett, 1873)U. Braun \u0026 Crous     2003","normalized":"(H. C. Burnett 1873) U. Braun \u0026 Crous 2003","year":"1873","authors":["H. C. Burnett","U. Braun","Crous"],"originalAuth":{"authors":["H. C. Burnett"],"year":{"year":"1873"}},"combinationAuth":{"authors":["U. Braun","Crous"],"year":{"year":"2003"}}},"details":{"species":{"genus":"Pseudocercospora","species":"dendrobii","authorship":{"verbatim":"(H.C.     Burnett, 1873)U. Braun \u0026 Crous     2003","normalized":"(H. C. Burnett 1873) U. Braun \u0026 Crous 2003","year":"1873","authors":["H. C. Burnett","U. Braun","Crous"],"originalAuth":{"authors":["H. C. Burnett"],"year":{"year":"1873"}},"combinationAuth":{"authors":["U. Braun","Crous"],"year":{"year":"2003"}}}}},"words":[{"verbatim":"Pseudocercospora","normalized":"Pseudocercospora","wordType":"GENUS","start":0,"end":16},{"verbatim":"dendrobii","normalized":"dendrobii","wordType":"SPECIES","start":17,"end":26},{"verbatim":"H.","normalized":"H.","wordType":"AUTHOR_WORD","start":27,"end":29},{"verbatim":"C.","normalized":"C.","wordType":"AUTHOR_WORD","start":29,"end":31},{"verbatim":"Burnett","normalized":"Burnett","wordType":"AUTHOR_WORD","start":36,"end":43},{"verbatim":"1873","normalized":"1873","wordType":"YEAR","start":45,"end":49},{"verbatim":"U.","normalized":"U.","wordType":"AUTHOR_WORD","start":50,"end":52},{"verbatim":"Braun","normalized":"Braun","wordType":"AUTHOR_WORD","start":53,"end":58},{"verbatim":"Crous","normalized":"Crous","wordType":"AUTHOR_WORD","start":61,"end":66},{"verbatim":"2003","normalized":"2003","wordType":"YEAR","start":71,"end":75}],"id":"8e5dd168-d7f1-51e4-989c-cedb253d572c","parserVersion":"test_version"}
 ```
 
 Name: Pseudocercospora dendrobii(H.C.     Burnett 1873)U. Braun & Crous ,    2003
@@ -1489,7 +1566,7 @@ Canonical: Pseudocercospora dendrobii
 Authorship: (H. C. Burnett 1873) U. Braun & Crous 2003
 
 ```json
-{"parsed":true,"quality":2,"qualityWarnings":[{"quality":2,"warning":"Multiple adjacent space characters"}],"verbatim":"Pseudocercospora dendrobii(H.C.     Burnett 1873)U. Braun \u0026 Crous ,    2003","normalized":"Pseudocercospora dendrobii (H. C. Burnett 1873) U. Braun \u0026 Crous 2003","canonical":{"stemmed":"Pseudocercospora dendrobi","simple":"Pseudocercospora dendrobii","full":"Pseudocercospora dendrobii"},"cardinality":2,"authorship":{"verbatim":"(H.C.     Burnett 1873)U. Braun \u0026 Crous ,    2003","normalized":"(H. C. Burnett 1873) U. Braun \u0026 Crous 2003","year":"1873","authors":["H. C. Burnett","U. Braun","Crous"],"originalAuth":{"authors":["H. C. Burnett"],"year":{"year":"1873"}},"combinationAuth":{"authors":["U. Braun","Crous"],"year":{"year":"2003"}}},"details":{"species":{"genus":"Pseudocercospora","species":"dendrobii","authorship":{"verbatim":"(H.C.     Burnett 1873)U. Braun \u0026 Crous ,    2003","normalized":"(H. C. Burnett 1873) U. Braun \u0026 Crous 2003","year":"1873","authors":["H. C. Burnett","U. Braun","Crous"],"originalAuth":{"authors":["H. C. Burnett"],"year":{"year":"1873"}},"combinationAuth":{"authors":["U. Braun","Crous"],"year":{"year":"2003"}}}}},"words":[{"verbatim":"Pseudocercospora","normalized":"Pseudocercospora","wordType":"GENUS","start":0,"end":16},{"verbatim":"dendrobii","normalized":"dendrobii","wordType":"SPECIES","start":17,"end":26},{"verbatim":"H.","normalized":"H.","wordType":"AUTHOR_WORD","start":27,"end":29},{"verbatim":"C.","normalized":"C.","wordType":"AUTHOR_WORD","start":29,"end":31},{"verbatim":"Burnett","normalized":"Burnett","wordType":"AUTHOR_WORD","start":36,"end":43},{"verbatim":"1873","normalized":"1873","wordType":"YEAR","start":44,"end":48},{"verbatim":"U.","normalized":"U.","wordType":"AUTHOR_WORD","start":49,"end":51},{"verbatim":"Braun","normalized":"Braun","wordType":"AUTHOR_WORD","start":52,"end":57},{"verbatim":"Crous","normalized":"Crous","wordType":"AUTHOR_WORD","start":60,"end":65},{"verbatim":"2003","normalized":"2003","wordType":"YEAR","start":71,"end":75}],"id":"a35b47c6-6716-5750-ab81-a19aed44143b","parserVersion":"test_version"}
+{"parsed":true,"quality":1,"verbatim":"Pseudocercospora dendrobii(H.C.     Burnett 1873)U. Braun \u0026 Crous ,    2003","normalized":"Pseudocercospora dendrobii (H. C. Burnett 1873) U. Braun \u0026 Crous 2003","canonical":{"stemmed":"Pseudocercospora dendrobi","simple":"Pseudocercospora dendrobii","full":"Pseudocercospora dendrobii"},"cardinality":2,"authorship":{"verbatim":"(H.C.     Burnett 1873)U. Braun \u0026 Crous ,    2003","normalized":"(H. C. Burnett 1873) U. Braun \u0026 Crous 2003","year":"1873","authors":["H. C. Burnett","U. Braun","Crous"],"originalAuth":{"authors":["H. C. Burnett"],"year":{"year":"1873"}},"combinationAuth":{"authors":["U. Braun","Crous"],"year":{"year":"2003"}}},"details":{"species":{"genus":"Pseudocercospora","species":"dendrobii","authorship":{"verbatim":"(H.C.     Burnett 1873)U. Braun \u0026 Crous ,    2003","normalized":"(H. C. Burnett 1873) U. Braun \u0026 Crous 2003","year":"1873","authors":["H. C. Burnett","U. Braun","Crous"],"originalAuth":{"authors":["H. C. Burnett"],"year":{"year":"1873"}},"combinationAuth":{"authors":["U. Braun","Crous"],"year":{"year":"2003"}}}}},"words":[{"verbatim":"Pseudocercospora","normalized":"Pseudocercospora","wordType":"GENUS","start":0,"end":16},{"verbatim":"dendrobii","normalized":"dendrobii","wordType":"SPECIES","start":17,"end":26},{"verbatim":"H.","normalized":"H.","wordType":"AUTHOR_WORD","start":27,"end":29},{"verbatim":"C.","normalized":"C.","wordType":"AUTHOR_WORD","start":29,"end":31},{"verbatim":"Burnett","normalized":"Burnett","wordType":"AUTHOR_WORD","start":36,"end":43},{"verbatim":"1873","normalized":"1873","wordType":"YEAR","start":44,"end":48},{"verbatim":"U.","normalized":"U.","wordType":"AUTHOR_WORD","start":49,"end":51},{"verbatim":"Braun","normalized":"Braun","wordType":"AUTHOR_WORD","start":52,"end":57},{"verbatim":"Crous","normalized":"Crous","wordType":"AUTHOR_WORD","start":60,"end":65},{"verbatim":"2003","normalized":"2003","wordType":"YEAR","start":71,"end":75}],"id":"a35b47c6-6716-5750-ab81-a19aed44143b","parserVersion":"test_version"}
 ```
 
 Name: Sedella pumila (Benth.) Britton & Rose
@@ -1656,6 +1733,16 @@ Authorship: P. L. Crouan & H. M. Crouan ex Weber-van Bosse
 {"parsed":true,"quality":2,"qualityWarnings":[{"quality":2,"warning":"Ex authors are not required"}],"verbatim":"Caulerpa fastigiata confervoides P. L. Crouan \u0026 H. M. Crouan ex Weber-van Bosse","normalized":"Caulerpa fastigiata confervoides P. L. Crouan \u0026 H. M. Crouan ex Weber-van Bosse","canonical":{"stemmed":"Caulerpa fastigiat conferuoid","simple":"Caulerpa fastigiata confervoides","full":"Caulerpa fastigiata confervoides"},"cardinality":3,"authorship":{"verbatim":"P. L. Crouan \u0026 H. M. Crouan ex Weber-van Bosse","normalized":"P. L. Crouan \u0026 H. M. Crouan ex Weber-van Bosse","authors":["P. L. Crouan","H. M. Crouan"],"originalAuth":{"authors":["P. L. Crouan","H. M. Crouan"],"exAuthors":{"authors":["Weber-van Bosse"]}}},"details":{"infraspecies":{"genus":"Caulerpa","species":"fastigiata","infraspecies":[{"value":"confervoides","authorship":{"verbatim":"P. L. Crouan \u0026 H. M. Crouan ex Weber-van Bosse","normalized":"P. L. Crouan \u0026 H. M. Crouan ex Weber-van Bosse","authors":["P. L. Crouan","H. M. Crouan"],"originalAuth":{"authors":["P. L. Crouan","H. M. Crouan"],"exAuthors":{"authors":["Weber-van Bosse"]}}}}]}},"words":[{"verbatim":"Caulerpa","normalized":"Caulerpa","wordType":"GENUS","start":0,"end":8},{"verbatim":"fastigiata","normalized":"fastigiata","wordType":"SPECIES","start":9,"end":19},{"verbatim":"confervoides","normalized":"confervoides","wordType":"INFRASPECIES","start":20,"end":32},{"verbatim":"P.","normalized":"P.","wordType":"AUTHOR_WORD","start":33,"end":35},{"verbatim":"L.","normalized":"L.","wordType":"AUTHOR_WORD","start":36,"end":38},{"verbatim":"Crouan","normalized":"Crouan","wordType":"AUTHOR_WORD","start":39,"end":45},{"verbatim":"H.","normalized":"H.","wordType":"AUTHOR_WORD","start":48,"end":50},{"verbatim":"M.","normalized":"M.","wordType":"AUTHOR_WORD","start":51,"end":53},{"verbatim":"Crouan","normalized":"Crouan","wordType":"AUTHOR_WORD","start":54,"end":60},{"verbatim":"Weber-van","normalized":"Weber-van","wordType":"AUTHOR_WORD","start":64,"end":73},{"verbatim":"Bosse","normalized":"Bosse","wordType":"AUTHOR_WORD","start":74,"end":79}],"id":"8934dbda-1fd2-52c4-af76-8f80e5f02791","parserVersion":"test_version"}
 ```
 
+Name: Rhinanthus glacialis simplex(Sterneck) J.Dostál
+
+Canonical: Rhinanthus glacialis simplex
+
+Authorship: (Sterneck) J. Dostál
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Rhinanthus glacialis simplex(Sterneck) J.Dostál","normalized":"Rhinanthus glacialis simplex (Sterneck) J. Dostál","canonical":{"stemmed":"Rhinanthus glacial simplex","simple":"Rhinanthus glacialis simplex","full":"Rhinanthus glacialis simplex"},"cardinality":3,"authorship":{"verbatim":"(Sterneck) J.Dostál","normalized":"(Sterneck) J. Dostál","authors":["Sterneck","J. Dostál"],"originalAuth":{"authors":["Sterneck"]},"combinationAuth":{"authors":["J. Dostál"]}},"details":{"infraspecies":{"genus":"Rhinanthus","species":"glacialis","infraspecies":[{"value":"simplex","authorship":{"verbatim":"(Sterneck) J.Dostál","normalized":"(Sterneck) J. Dostál","authors":["Sterneck","J. Dostál"],"originalAuth":{"authors":["Sterneck"]},"combinationAuth":{"authors":["J. Dostál"]}}}]}},"words":[{"verbatim":"Rhinanthus","normalized":"Rhinanthus","wordType":"GENUS","start":0,"end":10},{"verbatim":"glacialis","normalized":"glacialis","wordType":"SPECIES","start":11,"end":20},{"verbatim":"simplex","normalized":"simplex","wordType":"INFRASPECIES","start":21,"end":28},{"verbatim":"Sterneck","normalized":"Sterneck","wordType":"AUTHOR_WORD","start":29,"end":37},{"verbatim":"J.","normalized":"J.","wordType":"AUTHOR_WORD","start":39,"end":41},{"verbatim":"Dostál","normalized":"Dostál","wordType":"AUTHOR_WORD","start":41,"end":47}],"id":"8128607d-0186-5a38-ab02-c0b18f46b3ed","parserVersion":"test_version"}
+```
+
 ### Legacy ICZN names with rank
 
 Name: Acipenser gueldenstaedti colchicus natio danubicus Movchan, 1967
@@ -1670,6 +1757,16 @@ Authorship: Movchan 1967
 
 ### Infraspecies with rank (ICN)
 
+Name: Cantharellus sinuosus var. multiplex(A.H.Sm.) Romagn., 1995
+
+Canonical: Cantharellus sinuosus var. multiplex
+
+Authorship: (A. H. Sm.) Romagn. 1995
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Cantharellus sinuosus var. multiplex(A.H.Sm.) Romagn., 1995","normalized":"Cantharellus sinuosus var. multiplex (A. H. Sm.) Romagn. 1995","canonical":{"stemmed":"Cantharellus sinuos multiplex","simple":"Cantharellus sinuosus multiplex","full":"Cantharellus sinuosus var. multiplex"},"cardinality":3,"authorship":{"verbatim":"(A.H.Sm.) Romagn., 1995","normalized":"(A. H. Sm.) Romagn. 1995","authors":["A. H. Sm.","Romagn."],"originalAuth":{"authors":["A. H. Sm."]},"combinationAuth":{"authors":["Romagn."],"year":{"year":"1995"}}},"details":{"infraspecies":{"genus":"Cantharellus","species":"sinuosus","infraspecies":[{"value":"multiplex","rank":"var.","authorship":{"verbatim":"(A.H.Sm.) Romagn., 1995","normalized":"(A. H. Sm.) Romagn. 1995","authors":["A. H. Sm.","Romagn."],"originalAuth":{"authors":["A. H. Sm."]},"combinationAuth":{"authors":["Romagn."],"year":{"year":"1995"}}}}]}},"words":[{"verbatim":"Cantharellus","normalized":"Cantharellus","wordType":"GENUS","start":0,"end":12},{"verbatim":"sinuosus","normalized":"sinuosus","wordType":"SPECIES","start":13,"end":21},{"verbatim":"var.","normalized":"var.","wordType":"RANK","start":22,"end":26},{"verbatim":"multiplex","normalized":"multiplex","wordType":"INFRASPECIES","start":27,"end":36},{"verbatim":"A.","normalized":"A.","wordType":"AUTHOR_WORD","start":37,"end":39},{"verbatim":"H.","normalized":"H.","wordType":"AUTHOR_WORD","start":39,"end":41},{"verbatim":"Sm.","normalized":"Sm.","wordType":"AUTHOR_WORD","start":41,"end":44},{"verbatim":"Romagn.","normalized":"Romagn.","wordType":"AUTHOR_WORD","start":46,"end":53},{"verbatim":"1995","normalized":"1995","wordType":"YEAR","start":55,"end":59}],"id":"46007c97-3458-58c7-aea8-2413b74449d9","parserVersion":"test_version"}
+```
+
 Name: Crematogaster impressa st. brazzai Santschi 1937
 
 Canonical: Crematogaster impressa st. brazzai
@@ -1683,12 +1780,12 @@ Authorship: Santschi 1937
 <!-- badly formed name, we do not deal with it for now -->
 Name: Cibotium st.-johnii Krajina
 
-Canonical: Cibotium
+Canonical: Cibotium st-johnii
 
-Authorship:
+Authorship: Krajina
 
 ```json
-{"parsed":true,"quality":4,"qualityWarnings":[{"quality":4,"warning":"Unparsed tail"}],"verbatim":"Cibotium st.-johnii Krajina","normalized":"Cibotium","canonical":{"stemmed":"Cibotium","simple":"Cibotium","full":"Cibotium"},"cardinality":1,"tail":" st.-johnii Krajina","details":{"uninomial":{"uninomial":"Cibotium"}},"words":[{"verbatim":"Cibotium","normalized":"Cibotium","wordType":"UNINOMIAL","start":0,"end":8}],"id":"6b34256d-6c3b-5870-a781-77eeac49b6c4","parserVersion":"test_version"}
+{"parsed":true,"quality":3,"qualityWarnings":[{"quality":3,"warning":"Period character is not allowed in canonical"}],"verbatim":"Cibotium st.-johnii Krajina","normalized":"Cibotium st-johnii Krajina","canonical":{"stemmed":"Cibotium st-iohni","simple":"Cibotium st-johnii","full":"Cibotium st-johnii"},"cardinality":2,"authorship":{"verbatim":"Krajina","normalized":"Krajina","authors":["Krajina"],"originalAuth":{"authors":["Krajina"]}},"details":{"species":{"genus":"Cibotium","species":"st-johnii","authorship":{"verbatim":"Krajina","normalized":"Krajina","authors":["Krajina"],"originalAuth":{"authors":["Krajina"]}}}},"words":[{"verbatim":"Cibotium","normalized":"Cibotium","wordType":"GENUS","start":0,"end":8},{"verbatim":"st.-johnii","normalized":"st-johnii","wordType":"SPECIES","start":9,"end":19},{"verbatim":"Krajina","normalized":"Krajina","wordType":"AUTHOR_WORD","start":20,"end":27}],"id":"6b34256d-6c3b-5870-a781-77eeac49b6c4","parserVersion":"test_version"}
 ```
 
 Name: Camponotus conspicuus st. zonatus
@@ -1838,7 +1935,7 @@ Canonical: Sphaerotheca fuliginea f. dahliae
 Authorship: Movss. 1967
 
 ```json
-{"parsed":true,"quality":2,"qualityWarnings":[{"quality":2,"warning":"Multiple adjacent space characters"}],"verbatim":"Sphaerotheca    fuliginea    f.     dahliae    Movss.     1967","normalized":"Sphaerotheca fuliginea f. dahliae Movss. 1967","canonical":{"stemmed":"Sphaerotheca fuligine dahli","simple":"Sphaerotheca fuliginea dahliae","full":"Sphaerotheca fuliginea f. dahliae"},"cardinality":3,"authorship":{"verbatim":"Movss.     1967","normalized":"Movss. 1967","year":"1967","authors":["Movss."],"originalAuth":{"authors":["Movss."],"year":{"year":"1967"}}},"details":{"infraspecies":{"genus":"Sphaerotheca","species":"fuliginea","infraspecies":[{"value":"dahliae","rank":"f.","authorship":{"verbatim":"Movss.     1967","normalized":"Movss. 1967","year":"1967","authors":["Movss."],"originalAuth":{"authors":["Movss."],"year":{"year":"1967"}}}}]}},"words":[{"verbatim":"Sphaerotheca","normalized":"Sphaerotheca","wordType":"GENUS","start":0,"end":12},{"verbatim":"fuliginea","normalized":"fuliginea","wordType":"SPECIES","start":16,"end":25},{"verbatim":"f.","normalized":"f.","wordType":"RANK","start":29,"end":31},{"verbatim":"dahliae","normalized":"dahliae","wordType":"INFRASPECIES","start":36,"end":43},{"verbatim":"Movss.","normalized":"Movss.","wordType":"AUTHOR_WORD","start":47,"end":53},{"verbatim":"1967","normalized":"1967","wordType":"YEAR","start":58,"end":62}],"id":"bbd48fd4-ceee-5c66-ae42-f7fa43a8ea97","parserVersion":"test_version"}
+{"parsed":true,"quality":1,"verbatim":"Sphaerotheca    fuliginea    f.     dahliae    Movss.     1967","normalized":"Sphaerotheca fuliginea f. dahliae Movss. 1967","canonical":{"stemmed":"Sphaerotheca fuligine dahli","simple":"Sphaerotheca fuliginea dahliae","full":"Sphaerotheca fuliginea f. dahliae"},"cardinality":3,"authorship":{"verbatim":"Movss.     1967","normalized":"Movss. 1967","year":"1967","authors":["Movss."],"originalAuth":{"authors":["Movss."],"year":{"year":"1967"}}},"details":{"infraspecies":{"genus":"Sphaerotheca","species":"fuliginea","infraspecies":[{"value":"dahliae","rank":"f.","authorship":{"verbatim":"Movss.     1967","normalized":"Movss. 1967","year":"1967","authors":["Movss."],"originalAuth":{"authors":["Movss."],"year":{"year":"1967"}}}}]}},"words":[{"verbatim":"Sphaerotheca","normalized":"Sphaerotheca","wordType":"GENUS","start":0,"end":12},{"verbatim":"fuliginea","normalized":"fuliginea","wordType":"SPECIES","start":16,"end":25},{"verbatim":"f.","normalized":"f.","wordType":"RANK","start":29,"end":31},{"verbatim":"dahliae","normalized":"dahliae","wordType":"INFRASPECIES","start":36,"end":43},{"verbatim":"Movss.","normalized":"Movss.","wordType":"AUTHOR_WORD","start":47,"end":53},{"verbatim":"1967","normalized":"1967","wordType":"YEAR","start":58,"end":62}],"id":"bbd48fd4-ceee-5c66-ae42-f7fa43a8ea97","parserVersion":"test_version"}
 ```
 
 Name: Allophylus amazonicus var amazonicus
@@ -2149,6 +2246,49 @@ Authorship:
 {"parsed":true,"quality":4,"qualityWarnings":[{"quality":4,"warning":"Unparsed tail"}],"verbatim":"Aristotelia fruticosa var. δmicrophylla Hook.f.","normalized":"Aristotelia fruticosa","canonical":{"stemmed":"Aristotelia fruticos","simple":"Aristotelia fruticosa","full":"Aristotelia fruticosa"},"cardinality":2,"tail":" var. δmicrophylla Hook.f.","details":{"species":{"genus":"Aristotelia","species":"fruticosa"}},"words":[{"verbatim":"Aristotelia","normalized":"Aristotelia","wordType":"GENUS","start":0,"end":11},{"verbatim":"fruticosa","normalized":"fruticosa","wordType":"SPECIES","start":12,"end":21}],"id":"f7749c21-82a6-5c42-ab58-7b3d5a824e96","parserVersion":"test_version"}
 ```
 
+### Names with the dagger char '†'
+
+Name: Henriksenopterix†
+
+Canonical: Henriksenopterix
+
+Authorship:
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Henriksenopterix†","normalized":"Henriksenopterix","canonical":{"stemmed":"Henriksenopterix","simple":"Henriksenopterix","full":"Henriksenopterix"},"cardinality":1,"daggerChar":true,"details":{"uninomial":{"uninomial":"Henriksenopterix"}},"words":[{"verbatim":"Henriksenopterix","normalized":"Henriksenopterix","wordType":"UNINOMIAL","start":0,"end":16}],"id":"3cf4f556-ddb9-5a65-ab2f-531d387303eb","parserVersion":"test_version"}
+```
+
+Name: Henriksenopterix† paucistriata (Henriksen, 1922)
+
+Canonical: Henriksenopterix paucistriata
+
+Authorship: (Henriksen 1922)
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Henriksenopterix† paucistriata (Henriksen, 1922)","normalized":"Henriksenopterix paucistriata (Henriksen 1922)","canonical":{"stemmed":"Henriksenopterix paucistriat","simple":"Henriksenopterix paucistriata","full":"Henriksenopterix paucistriata"},"cardinality":2,"authorship":{"verbatim":"(Henriksen, 1922)","normalized":"(Henriksen 1922)","year":"1922","authors":["Henriksen"],"originalAuth":{"authors":["Henriksen"],"year":{"year":"1922"}}},"daggerChar":true,"details":{"species":{"genus":"Henriksenopterix","species":"paucistriata","authorship":{"verbatim":"(Henriksen, 1922)","normalized":"(Henriksen 1922)","year":"1922","authors":["Henriksen"],"originalAuth":{"authors":["Henriksen"],"year":{"year":"1922"}}}}},"words":[{"verbatim":"Henriksenopterix","normalized":"Henriksenopterix","wordType":"GENUS","start":0,"end":16},{"verbatim":"paucistriata","normalized":"paucistriata","wordType":"SPECIES","start":20,"end":32},{"verbatim":"Henriksen","normalized":"Henriksen","wordType":"AUTHOR_WORD","start":34,"end":43},{"verbatim":"1922","normalized":"1922","wordType":"YEAR","start":45,"end":49}],"id":"510f327c-ee88-50fc-a5f7-94df7d05aa90","parserVersion":"test_version"}
+```
+
+Name: Heteralocha acutirostris (Gould, 1837) Huia N E†
+
+Canonical: Heteralocha acutirostris
+
+Authorship: (Gould 1837) Huia N E
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Heteralocha acutirostris (Gould, 1837) Huia N E†","normalized":"Heteralocha acutirostris (Gould 1837) Huia N E","canonical":{"stemmed":"Heteralocha acutirostr","simple":"Heteralocha acutirostris","full":"Heteralocha acutirostris"},"cardinality":2,"authorship":{"verbatim":"(Gould, 1837) Huia N E","normalized":"(Gould 1837) Huia N E","year":"1837","authors":["Gould","Huia N E"],"originalAuth":{"authors":["Gould"],"year":{"year":"1837"}},"combinationAuth":{"authors":["Huia N E"]}},"daggerChar":true,"details":{"species":{"genus":"Heteralocha","species":"acutirostris","authorship":{"verbatim":"(Gould, 1837) Huia N E","normalized":"(Gould 1837) Huia N E","year":"1837","authors":["Gould","Huia N E"],"originalAuth":{"authors":["Gould"],"year":{"year":"1837"}},"combinationAuth":{"authors":["Huia N E"]}}}},"words":[{"verbatim":"Heteralocha","normalized":"Heteralocha","wordType":"GENUS","start":0,"end":11},{"verbatim":"acutirostris","normalized":"acutirostris","wordType":"SPECIES","start":12,"end":24},{"verbatim":"Gould","normalized":"Gould","wordType":"AUTHOR_WORD","start":26,"end":31},{"verbatim":"1837","normalized":"1837","wordType":"YEAR","start":33,"end":37},{"verbatim":"Huia","normalized":"Huia","wordType":"AUTHOR_WORD","start":39,"end":43},{"verbatim":"N","normalized":"N","wordType":"AUTHOR_WORD","start":44,"end":45},{"verbatim":"E","normalized":"E","wordType":"AUTHOR_WORD","start":46,"end":47}],"id":"197728f8-091b-5378-a505-c73acd6cbefc","parserVersion":"test_version"}
+```
+
+<!-- TODO: tail contains 3 empty spaces instead of a dagger -->
+Name: Oncorhynchus nerka (Walbaum, 1792) Sockeye salmon F A †?
+
+Canonical: Oncorhynchus nerka
+
+Authorship: (Walbaum, 1792) Sockeye salmon F A
+
+```json
+{"parsed":true,"quality":4,"qualityWarnings":[{"quality":4,"warning":"Unparsed tail"}],"verbatim":"Oncorhynchus nerka (Walbaum, 1792) Sockeye salmon F A †?","normalized":"Oncorhynchus nerka (Walbaum 1792) Sockeye salmon F A","canonical":{"stemmed":"Oncorhynchus nerk salmon","simple":"Oncorhynchus nerka salmon","full":"Oncorhynchus nerka salmon"},"cardinality":3,"authorship":{"verbatim":"F A","normalized":"F A","authors":["F A"],"originalAuth":{"authors":["F A"]}},"daggerChar":true,"tail":"    ?","details":{"infraspecies":{"genus":"Oncorhynchus","species":"nerka","authorship":{"verbatim":"(Walbaum, 1792) Sockeye","normalized":"(Walbaum 1792) Sockeye","year":"1792","authors":["Walbaum","Sockeye"],"originalAuth":{"authors":["Walbaum"],"year":{"year":"1792"}},"combinationAuth":{"authors":["Sockeye"]}},"infraspecies":[{"value":"salmon","authorship":{"verbatim":"F A","normalized":"F A","authors":["F A"],"originalAuth":{"authors":["F A"]}}}]}},"words":[{"verbatim":"Oncorhynchus","normalized":"Oncorhynchus","wordType":"GENUS","start":0,"end":12},{"verbatim":"nerka","normalized":"nerka","wordType":"SPECIES","start":13,"end":18},{"verbatim":"Walbaum","normalized":"Walbaum","wordType":"AUTHOR_WORD","start":20,"end":27},{"verbatim":"1792","normalized":"1792","wordType":"YEAR","start":29,"end":33},{"verbatim":"Sockeye","normalized":"Sockeye","wordType":"AUTHOR_WORD","start":35,"end":42},{"verbatim":"salmon","normalized":"salmon","wordType":"INFRASPECIES","start":43,"end":49},{"verbatim":"F","normalized":"F","wordType":"AUTHOR_WORD","start":50,"end":51},{"verbatim":"A","normalized":"A","wordType":"AUTHOR_WORD","start":52,"end":53}],"id":"fa50e193-9745-5355-acb9-3c5c2179a3d6","parserVersion":"test_version"}
+```
+
 ### Hybrids with notho- ranks
 
 Name: Crataegus curvisepala nvar. naviculiformis T. Petauer
@@ -2168,7 +2308,7 @@ Canonical: Aconitum nothosect. Acopellus
 Authorship:
 
 ```json
-{"parsed":true,"quality":2,"qualityWarnings":[{"quality":2,"warning":"Named hybrid"},{"quality":2,"warning":"Combination of two uninomials"}],"verbatim":"Aconitum W. Mucher nothosect. Acopellus","normalized":"Aconitum nothosect. Acopellus","canonical":{"stemmed":"Acopellus","simple":"Acopellus","full":"Aconitum nothosect. Acopellus"},"cardinality":1,"hybrid":"NOTHO_HYBRID","details":{"uninomial":{"uninomial":"Acopellus","rank":"nothosect.","parent":"Aconitum"}},"words":[{"verbatim":"Aconitum","normalized":"Aconitum","wordType":"UNINOMIAL","start":0,"end":8},{"verbatim":"W.","normalized":"W.","wordType":"AUTHOR_WORD","start":9,"end":11},{"verbatim":"Mucher","normalized":"Mucher","wordType":"AUTHOR_WORD","start":12,"end":18},{"verbatim":"nothosect.","normalized":"nothosect.","wordType":"RANK","start":19,"end":29},{"verbatim":"Acopellus","normalized":"Acopellus","wordType":"UNINOMIAL","start":30,"end":39}],"id":"815f38e4-2425-551d-b054-4949a457d6a6","parserVersion":"test_version"}
+{"parsed":true,"quality":2,"qualityWarnings":[{"quality":2,"warning":"Combination of two uninomials"},{"quality":2,"warning":"Named hybrid"}],"verbatim":"Aconitum W. Mucher nothosect. Acopellus","normalized":"Aconitum nothosect. Acopellus","canonical":{"stemmed":"Acopellus","simple":"Acopellus","full":"Aconitum nothosect. Acopellus"},"cardinality":1,"hybrid":"NOTHO_HYBRID","details":{"uninomial":{"uninomial":"Acopellus","rank":"nothosect.","parent":"Aconitum"}},"words":[{"verbatim":"Aconitum","normalized":"Aconitum","wordType":"UNINOMIAL","start":0,"end":8},{"verbatim":"W.","normalized":"W.","wordType":"AUTHOR_WORD","start":9,"end":11},{"verbatim":"Mucher","normalized":"Mucher","wordType":"AUTHOR_WORD","start":12,"end":18},{"verbatim":"nothosect.","normalized":"nothosect.","wordType":"RANK","start":19,"end":29},{"verbatim":"Acopellus","normalized":"Acopellus","wordType":"UNINOMIAL","start":30,"end":39}],"id":"815f38e4-2425-551d-b054-4949a457d6a6","parserVersion":"test_version"}
 ```
 
 Name: Aconitum W. Mucher nothoser. Acotoxicum
@@ -2178,7 +2318,7 @@ Canonical: Aconitum nothoser. Acotoxicum
 Authorship:
 
 ```json
-{"parsed":true,"quality":2,"qualityWarnings":[{"quality":2,"warning":"Named hybrid"},{"quality":2,"warning":"Combination of two uninomials"}],"verbatim":"Aconitum W. Mucher nothoser. Acotoxicum","normalized":"Aconitum nothoser. Acotoxicum","canonical":{"stemmed":"Acotoxicum","simple":"Acotoxicum","full":"Aconitum nothoser. Acotoxicum"},"cardinality":1,"hybrid":"NOTHO_HYBRID","details":{"uninomial":{"uninomial":"Acotoxicum","rank":"nothoser.","parent":"Aconitum"}},"words":[{"verbatim":"Aconitum","normalized":"Aconitum","wordType":"UNINOMIAL","start":0,"end":8},{"verbatim":"W.","normalized":"W.","wordType":"AUTHOR_WORD","start":9,"end":11},{"verbatim":"Mucher","normalized":"Mucher","wordType":"AUTHOR_WORD","start":12,"end":18},{"verbatim":"nothoser.","normalized":"nothoser.","wordType":"RANK","start":19,"end":28},{"verbatim":"Acotoxicum","normalized":"Acotoxicum","wordType":"UNINOMIAL","start":29,"end":39}],"id":"6fd8d3d4-bdb6-5fc6-a94d-966af669c7e9","parserVersion":"test_version"}
+{"parsed":true,"quality":2,"qualityWarnings":[{"quality":2,"warning":"Combination of two uninomials"},{"quality":2,"warning":"Named hybrid"}],"verbatim":"Aconitum W. Mucher nothoser. Acotoxicum","normalized":"Aconitum nothoser. Acotoxicum","canonical":{"stemmed":"Acotoxicum","simple":"Acotoxicum","full":"Aconitum nothoser. Acotoxicum"},"cardinality":1,"hybrid":"NOTHO_HYBRID","details":{"uninomial":{"uninomial":"Acotoxicum","rank":"nothoser.","parent":"Aconitum"}},"words":[{"verbatim":"Aconitum","normalized":"Aconitum","wordType":"UNINOMIAL","start":0,"end":8},{"verbatim":"W.","normalized":"W.","wordType":"AUTHOR_WORD","start":9,"end":11},{"verbatim":"Mucher","normalized":"Mucher","wordType":"AUTHOR_WORD","start":12,"end":18},{"verbatim":"nothoser.","normalized":"nothoser.","wordType":"RANK","start":19,"end":28},{"verbatim":"Acotoxicum","normalized":"Acotoxicum","wordType":"UNINOMIAL","start":29,"end":39}],"id":"6fd8d3d4-bdb6-5fc6-a94d-966af669c7e9","parserVersion":"test_version"}
 ```
 
 Name: Abies masjoannis nothof. mesoides
@@ -2373,7 +2513,7 @@ Canonical: × Agroelymus sect. Agroelinelymus
 Authorship:
 
 ```json
-{"parsed":true,"quality":3,"qualityWarnings":[{"quality":3,"warning":"Hybrid char is not separated by space"},{"quality":2,"warning":"Named hybrid"},{"quality":2,"warning":"Combination of two uninomials"}],"verbatim":"XAgroelymus Lapage sect. Agroelinelymus","normalized":"× Agroelymus sect. Agroelinelymus","canonical":{"stemmed":"Agroelinelymus","simple":"Agroelinelymus","full":"× Agroelymus sect. Agroelinelymus"},"cardinality":1,"hybrid":"NAMED_HYBRID","details":{"uninomial":{"uninomial":"Agroelinelymus","rank":"sect.","parent":"Agroelymus"}},"words":[{"verbatim":"X","normalized":"×","wordType":"HYBRID_CHAR","start":0,"end":1},{"verbatim":"Agroelymus","normalized":"Agroelymus","wordType":"UNINOMIAL","start":1,"end":11},{"verbatim":"Lapage","normalized":"Lapage","wordType":"AUTHOR_WORD","start":12,"end":18},{"verbatim":"sect.","normalized":"sect.","wordType":"RANK","start":19,"end":24},{"verbatim":"Agroelinelymus","normalized":"Agroelinelymus","wordType":"UNINOMIAL","start":25,"end":39}],"id":"419d1a5d-64b9-5e0d-87f4-624b19ddab0f","parserVersion":"test_version"}
+{"parsed":true,"quality":3,"qualityWarnings":[{"quality":3,"warning":"Hybrid char is not separated by space"},{"quality":2,"warning":"Combination of two uninomials"},{"quality":2,"warning":"Named hybrid"}],"verbatim":"XAgroelymus Lapage sect. Agroelinelymus","normalized":"× Agroelymus sect. Agroelinelymus","canonical":{"stemmed":"Agroelinelymus","simple":"Agroelinelymus","full":"× Agroelymus sect. Agroelinelymus"},"cardinality":1,"hybrid":"NAMED_HYBRID","details":{"uninomial":{"uninomial":"Agroelinelymus","rank":"sect.","parent":"Agroelymus"}},"words":[{"verbatim":"X","normalized":"×","wordType":"HYBRID_CHAR","start":0,"end":1},{"verbatim":"Agroelymus","normalized":"Agroelymus","wordType":"UNINOMIAL","start":1,"end":11},{"verbatim":"Lapage","normalized":"Lapage","wordType":"AUTHOR_WORD","start":12,"end":18},{"verbatim":"sect.","normalized":"sect.","wordType":"RANK","start":19,"end":24},{"verbatim":"Agroelinelymus","normalized":"Agroelinelymus","wordType":"UNINOMIAL","start":25,"end":39}],"id":"419d1a5d-64b9-5e0d-87f4-624b19ddab0f","parserVersion":"test_version"}
 ```
 
 Name: ×Agropogon littoralis (Sm.) C. E. Hubb. 1946
@@ -2413,7 +2553,7 @@ Canonical: Polypodium × vulgare nothosubsp. mantoniae
 Authorship: (Rothm.) Schidlay
 
 ```json
-{"parsed":true,"quality":2,"qualityWarnings":[{"quality":2,"warning":"Named hybrid"},{"quality":2,"warning":"Multiple adjacent space characters"}],"verbatim":"Polypodium  x vulgare nothosubsp. mantoniae (Rothm.) Schidlay","normalized":"Polypodium × vulgare nothosubsp. mantoniae (Rothm.) Schidlay","canonical":{"stemmed":"Polypodium uulgar mantoni","simple":"Polypodium vulgare mantoniae","full":"Polypodium × vulgare nothosubsp. mantoniae"},"cardinality":3,"authorship":{"verbatim":"(Rothm.) Schidlay","normalized":"(Rothm.) Schidlay","authors":["Rothm.","Schidlay"],"originalAuth":{"authors":["Rothm."]},"combinationAuth":{"authors":["Schidlay"]}},"hybrid":"NAMED_HYBRID","details":{"infraspecies":{"genus":"Polypodium","species":"vulgare","infraspecies":[{"value":"mantoniae","rank":"nothosubsp.","authorship":{"verbatim":"(Rothm.) Schidlay","normalized":"(Rothm.) Schidlay","authors":["Rothm.","Schidlay"],"originalAuth":{"authors":["Rothm."]},"combinationAuth":{"authors":["Schidlay"]}}}]}},"words":[{"verbatim":"Polypodium","normalized":"Polypodium","wordType":"GENUS","start":0,"end":10},{"verbatim":"x","normalized":"×","wordType":"HYBRID_CHAR","start":12,"end":13},{"verbatim":"vulgare","normalized":"vulgare","wordType":"SPECIES","start":14,"end":21},{"verbatim":"nothosubsp.","normalized":"nothosubsp.","wordType":"RANK","start":22,"end":33},{"verbatim":"mantoniae","normalized":"mantoniae","wordType":"INFRASPECIES","start":34,"end":43},{"verbatim":"Rothm.","normalized":"Rothm.","wordType":"AUTHOR_WORD","start":45,"end":51},{"verbatim":"Schidlay","normalized":"Schidlay","wordType":"AUTHOR_WORD","start":53,"end":61}],"id":"8666c370-8843-5324-a7f3-754ca778d618","parserVersion":"test_version"}
+{"parsed":true,"quality":2,"qualityWarnings":[{"quality":2,"warning":"Named hybrid"}],"verbatim":"Polypodium  x vulgare nothosubsp. mantoniae (Rothm.) Schidlay","normalized":"Polypodium × vulgare nothosubsp. mantoniae (Rothm.) Schidlay","canonical":{"stemmed":"Polypodium uulgar mantoni","simple":"Polypodium vulgare mantoniae","full":"Polypodium × vulgare nothosubsp. mantoniae"},"cardinality":3,"authorship":{"verbatim":"(Rothm.) Schidlay","normalized":"(Rothm.) Schidlay","authors":["Rothm.","Schidlay"],"originalAuth":{"authors":["Rothm."]},"combinationAuth":{"authors":["Schidlay"]}},"hybrid":"NAMED_HYBRID","details":{"infraspecies":{"genus":"Polypodium","species":"vulgare","infraspecies":[{"value":"mantoniae","rank":"nothosubsp.","authorship":{"verbatim":"(Rothm.) Schidlay","normalized":"(Rothm.) Schidlay","authors":["Rothm.","Schidlay"],"originalAuth":{"authors":["Rothm."]},"combinationAuth":{"authors":["Schidlay"]}}}]}},"words":[{"verbatim":"Polypodium","normalized":"Polypodium","wordType":"GENUS","start":0,"end":10},{"verbatim":"x","normalized":"×","wordType":"HYBRID_CHAR","start":12,"end":13},{"verbatim":"vulgare","normalized":"vulgare","wordType":"SPECIES","start":14,"end":21},{"verbatim":"nothosubsp.","normalized":"nothosubsp.","wordType":"RANK","start":22,"end":33},{"verbatim":"mantoniae","normalized":"mantoniae","wordType":"INFRASPECIES","start":34,"end":43},{"verbatim":"Rothm.","normalized":"Rothm.","wordType":"AUTHOR_WORD","start":45,"end":51},{"verbatim":"Schidlay","normalized":"Schidlay","wordType":"AUTHOR_WORD","start":53,"end":61}],"id":"8666c370-8843-5324-a7f3-754ca778d618","parserVersion":"test_version"}
 ```
 
 Name: Salix x capreola Andersson
@@ -2584,6 +2724,48 @@ Authorship: (Chupp & Linder) X. J. Liu & Y. L. Guo 1989
 {"parsed":true,"quality":1,"verbatim":"Pseudocercospora broussonetiae (Chupp \u0026 Linder) X.J. Liu \u0026 Y.L. Guo 1989","normalized":"Pseudocercospora broussonetiae (Chupp \u0026 Linder) X. J. Liu \u0026 Y. L. Guo 1989","canonical":{"stemmed":"Pseudocercospora broussoneti","simple":"Pseudocercospora broussonetiae","full":"Pseudocercospora broussonetiae"},"cardinality":2,"authorship":{"verbatim":"(Chupp \u0026 Linder) X.J. Liu \u0026 Y.L. Guo 1989","normalized":"(Chupp \u0026 Linder) X. J. Liu \u0026 Y. L. Guo 1989","authors":["Chupp","Linder","X. J. Liu","Y. L. Guo"],"originalAuth":{"authors":["Chupp","Linder"]},"combinationAuth":{"authors":["X. J. Liu","Y. L. Guo"],"year":{"year":"1989"}}},"details":{"species":{"genus":"Pseudocercospora","species":"broussonetiae","authorship":{"verbatim":"(Chupp \u0026 Linder) X.J. Liu \u0026 Y.L. Guo 1989","normalized":"(Chupp \u0026 Linder) X. J. Liu \u0026 Y. L. Guo 1989","authors":["Chupp","Linder","X. J. Liu","Y. L. Guo"],"originalAuth":{"authors":["Chupp","Linder"]},"combinationAuth":{"authors":["X. J. Liu","Y. L. Guo"],"year":{"year":"1989"}}}}},"words":[{"verbatim":"Pseudocercospora","normalized":"Pseudocercospora","wordType":"GENUS","start":0,"end":16},{"verbatim":"broussonetiae","normalized":"broussonetiae","wordType":"SPECIES","start":17,"end":30},{"verbatim":"Chupp","normalized":"Chupp","wordType":"AUTHOR_WORD","start":32,"end":37},{"verbatim":"Linder","normalized":"Linder","wordType":"AUTHOR_WORD","start":40,"end":46},{"verbatim":"X.","normalized":"X.","wordType":"AUTHOR_WORD","start":48,"end":50},{"verbatim":"J.","normalized":"J.","wordType":"AUTHOR_WORD","start":50,"end":52},{"verbatim":"Liu","normalized":"Liu","wordType":"AUTHOR_WORD","start":53,"end":56},{"verbatim":"Y.","normalized":"Y.","wordType":"AUTHOR_WORD","start":59,"end":61},{"verbatim":"L.","normalized":"L.","wordType":"AUTHOR_WORD","start":61,"end":63},{"verbatim":"Guo","normalized":"Guo","wordType":"AUTHOR_WORD","start":64,"end":67},{"verbatim":"1989","normalized":"1989","wordType":"YEAR","start":68,"end":72}],"id":"64f92545-9139-5e53-9ba5-c5c9edb51be5","parserVersion":"test_version"}
 ```
 
+### Graft-chimeras
+
+Name: + Crataegomespilus
+
+Canonical:
+
+Authorship:
+
+```json
+{"parsed":false,"quality":0,"verbatim":"+ Crataegomespilus","cardinality":0,"id":"408e8fc7-fa27-53a6-9eff-37cb779724e4","parserVersion":"test_version"}
+```
+
+Name: +Crataegomespilus
+
+Canonical:
+
+Authorship:
+
+```json
+{"parsed":false,"quality":0,"verbatim":"+Crataegomespilus","cardinality":0,"id":"c2c50c08-1f62-547f-8fab-50359caf0b31","parserVersion":"test_version"}
+```
+
+Name: Cytisus purpureus + Laburnum anagyroides
+
+Canonical:
+
+Authorship:
+
+```json
+{"parsed":false,"quality":0,"verbatim":"Cytisus purpureus + Laburnum anagyroides","cardinality":0,"id":"a8f8ace8-ba1a-5371-b9d5-73efce81d52c","parserVersion":"test_version"}
+```
+
+Name: Crataegus + Mespilus
+
+Canonical:
+
+Authorship:
+
+```json
+{"parsed":false,"quality":0,"verbatim":"Crataegus + Mespilus","cardinality":0,"id":"d651cd82-9b00-53dd-9d59-6af66ab62046","parserVersion":"test_version"}
+```
+
 ### Genus with hyphen (allowed by ICN)
 
 Name: Saxo-Fridericia R. H. Schomb.
@@ -2635,7 +2817,7 @@ Canonical: Ambrysus-stål
 Authorship:
 
 ```json
-{"parsed":true,"quality":4,"qualityWarnings":[{"quality":4,"warning":"Unparsed tail"},{"quality":2,"warning":"Non-standard characters in canonical"},{"quality":2,"warning":"Apparent genus with capital character after hyphen"}],"verbatim":"Ambrysus-Stål, 1862","normalized":"Ambrysus-stål","canonical":{"stemmed":"Ambrysus-stål","simple":"Ambrysus-stål","full":"Ambrysus-stål"},"cardinality":1,"tail":", 1862","details":{"uninomial":{"uninomial":"Ambrysus-stål"}},"words":[{"verbatim":"Ambrysus-Stål","normalized":"Ambrysus-stål","wordType":"UNINOMIAL","start":0,"end":13}],"id":"ab9e69c4-9418-5f86-ad51-3bfc87f76016","parserVersion":"test_version"}
+{"parsed":true,"quality":4,"qualityWarnings":[{"quality":4,"warning":"Unparsed tail"},{"quality":2,"warning":"Apparent genus with capital character after hyphen"},{"quality":2,"warning":"Non-standard characters in canonical"}],"verbatim":"Ambrysus-Stål, 1862","normalized":"Ambrysus-stål","canonical":{"stemmed":"Ambrysus-stål","simple":"Ambrysus-stål","full":"Ambrysus-stål"},"cardinality":1,"tail":", 1862","details":{"uninomial":{"uninomial":"Ambrysus-stål"}},"words":[{"verbatim":"Ambrysus-Stål","normalized":"Ambrysus-stål","wordType":"UNINOMIAL","start":0,"end":13}],"id":"ab9e69c4-9418-5f86-ad51-3bfc87f76016","parserVersion":"test_version"}
 ```
 
 ### A 'basionym' author in parenthesis (basionym is an ICN term)
@@ -2783,9 +2965,51 @@ Authorship:
 {"parsed":true,"quality":4,"qualityWarnings":[{"quality":4,"warning":"Uninomial word with question mark"}],"verbatim":"Ferganoconcha? oblonga","normalized":"Ferganoconcha oblonga","canonical":{"stemmed":"Ferganoconcha oblong","simple":"Ferganoconcha oblonga","full":"Ferganoconcha oblonga"},"cardinality":2,"details":{"species":{"genus":"Ferganoconcha","species":"oblonga"}},"words":[{"verbatim":"Ferganoconcha?","normalized":"Ferganoconcha","wordType":"GENUS","start":0,"end":14},{"verbatim":"oblonga","normalized":"oblonga","wordType":"SPECIES","start":15,"end":22}],"id":"487912fd-85c3-556a-a1b1-8fe802e9ccb1","parserVersion":"test_version"}
 ```
 
+### Epithets with a period character
+
+Name: Macromitrium st.-johnii E. B. Bartram
+
+Canonical: Macromitrium st-johnii
+
+Authorship: E. B. Bartram
+
+```json
+{"parsed":true,"quality":3,"qualityWarnings":[{"quality":3,"warning":"Period character is not allowed in canonical"}],"verbatim":"Macromitrium st.-johnii E. B. Bartram","normalized":"Macromitrium st-johnii E. B. Bartram","canonical":{"stemmed":"Macromitrium st-iohni","simple":"Macromitrium st-johnii","full":"Macromitrium st-johnii"},"cardinality":2,"authorship":{"verbatim":"E. B. Bartram","normalized":"E. B. Bartram","authors":["E. B. Bartram"],"originalAuth":{"authors":["E. B. Bartram"]}},"details":{"species":{"genus":"Macromitrium","species":"st-johnii","authorship":{"verbatim":"E. B. Bartram","normalized":"E. B. Bartram","authors":["E. B. Bartram"],"originalAuth":{"authors":["E. B. Bartram"]}}}},"words":[{"verbatim":"Macromitrium","normalized":"Macromitrium","wordType":"GENUS","start":0,"end":12},{"verbatim":"st.-johnii","normalized":"st-johnii","wordType":"SPECIES","start":13,"end":23},{"verbatim":"E.","normalized":"E.","wordType":"AUTHOR_WORD","start":24,"end":26},{"verbatim":"B.","normalized":"B.","wordType":"AUTHOR_WORD","start":27,"end":29},{"verbatim":"Bartram","normalized":"Bartram","wordType":"AUTHOR_WORD","start":30,"end":37}],"id":"219bf25f-d36d-5259-8005-dc3b8a223d0a","parserVersion":"test_version"}
+```
+
+### Epithets starting with non-
+
+Name: Peperomia non-alata Trel.
+
+Canonical: Peperomia non-alata
+
+Authorship: Trel.
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Peperomia non-alata Trel.","normalized":"Peperomia non-alata Trel.","canonical":{"stemmed":"Peperomia non-alat","simple":"Peperomia non-alata","full":"Peperomia non-alata"},"cardinality":2,"authorship":{"verbatim":"Trel.","normalized":"Trel.","authors":["Trel."],"originalAuth":{"authors":["Trel."]}},"details":{"species":{"genus":"Peperomia","species":"non-alata","authorship":{"verbatim":"Trel.","normalized":"Trel.","authors":["Trel."],"originalAuth":{"authors":["Trel."]}}}},"words":[{"verbatim":"Peperomia","normalized":"Peperomia","wordType":"GENUS","start":0,"end":9},{"verbatim":"non-alata","normalized":"non-alata","wordType":"SPECIES","start":10,"end":19},{"verbatim":"Trel.","normalized":"Trel.","wordType":"AUTHOR_WORD","start":20,"end":25}],"id":"3eb579ac-ab79-5b6a-a63a-eded8f3af476","parserVersion":"test_version"}
+```
+Name: Hyacinthoides non-scripta (L.) Chouard ex Rothm.
+
+Canonical: Hyacinthoides non-scripta
+
+Authorship: (L.) Chouard ex Rothm.
+
+```json
+{"parsed":true,"quality":2,"qualityWarnings":[{"quality":2,"warning":"Ex authors are not required"}],"verbatim":"Hyacinthoides non-scripta (L.) Chouard ex Rothm.","normalized":"Hyacinthoides non-scripta (L.) Chouard ex Rothm.","canonical":{"stemmed":"Hyacinthoides non-script","simple":"Hyacinthoides non-scripta","full":"Hyacinthoides non-scripta"},"cardinality":2,"authorship":{"verbatim":"(L.) Chouard ex Rothm.","normalized":"(L.) Chouard ex Rothm.","authors":["L.","Chouard"],"originalAuth":{"authors":["L."]},"combinationAuth":{"authors":["Chouard"],"exAuthors":{"authors":["Rothm."]}}},"details":{"species":{"genus":"Hyacinthoides","species":"non-scripta","authorship":{"verbatim":"(L.) Chouard ex Rothm.","normalized":"(L.) Chouard ex Rothm.","authors":["L.","Chouard"],"originalAuth":{"authors":["L."]},"combinationAuth":{"authors":["Chouard"],"exAuthors":{"authors":["Rothm."]}}}}},"words":[{"verbatim":"Hyacinthoides","normalized":"Hyacinthoides","wordType":"GENUS","start":0,"end":13},{"verbatim":"non-scripta","normalized":"non-scripta","wordType":"SPECIES","start":14,"end":25},{"verbatim":"L.","normalized":"L.","wordType":"AUTHOR_WORD","start":27,"end":29},{"verbatim":"Chouard","normalized":"Chouard","wordType":"AUTHOR_WORD","start":31,"end":38},{"verbatim":"Rothm.","normalized":"Rothm.","wordType":"AUTHOR_WORD","start":42,"end":48}],"id":"12e44c2c-33f9-5dfb-bc72-6b495577e7b2","parserVersion":"test_version"}
+```
+Name: Monocelis non-scripta Curini-Galletti, 2014
+
+Canonical: Monocelis non-scripta
+
+Authorship: Curini-Galletti 2014
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Monocelis non-scripta Curini-Galletti, 2014","normalized":"Monocelis non-scripta Curini-Galletti 2014","canonical":{"stemmed":"Monocelis non-script","simple":"Monocelis non-scripta","full":"Monocelis non-scripta"},"cardinality":2,"authorship":{"verbatim":"Curini-Galletti, 2014","normalized":"Curini-Galletti 2014","year":"2014","authors":["Curini-Galletti"],"originalAuth":{"authors":["Curini-Galletti"],"year":{"year":"2014"}}},"details":{"species":{"genus":"Monocelis","species":"non-scripta","authorship":{"verbatim":"Curini-Galletti, 2014","normalized":"Curini-Galletti 2014","year":"2014","authors":["Curini-Galletti"],"originalAuth":{"authors":["Curini-Galletti"],"year":{"year":"2014"}}}}},"words":[{"verbatim":"Monocelis","normalized":"Monocelis","wordType":"GENUS","start":0,"end":9},{"verbatim":"non-scripta","normalized":"non-scripta","wordType":"SPECIES","start":10,"end":21},{"verbatim":"Curini-Galletti","normalized":"Curini-Galletti","wordType":"AUTHOR_WORD","start":22,"end":37},{"verbatim":"2014","normalized":"2014","wordType":"YEAR","start":39,"end":43}],"id":"26be3019-a49f-5299-9c86-6363abe6e982","parserVersion":"test_version"}
+```
+
 ### Epithets starting with authors' prefixes (de, di, la, von etc.)
 
-<-- There is a danger that such epithets will be interpreted as authors-->
+<!-- There is a danger that such epithets will be interpreted as authors -->
 
 Name: Aspicilia desertorum desertorum
 
@@ -2949,7 +3173,7 @@ Name: Amathia tricornis Busk ms in Chimonides, 1987
 
 Canonical: Amathia tricornis
 
-Authorship: Busk ms in Chimonides, 1987
+Authorship: Busk ex Chimonides 1987
 
 ```json
 {"parsed":true,"quality":2,"qualityWarnings":[{"quality":2,"warning":"Ex authors are not required"}],"verbatim":"Amathia tricornis Busk ms in Chimonides, 1987","normalized":"Amathia tricornis Busk ex Chimonides 1987","canonical":{"stemmed":"Amathia tricorn","simple":"Amathia tricornis","full":"Amathia tricornis"},"cardinality":2,"authorship":{"verbatim":"Busk ms in Chimonides, 1987","normalized":"Busk ex Chimonides 1987","authors":["Busk"],"originalAuth":{"authors":["Busk"],"exAuthors":{"authors":["Chimonides"],"year":{"year":"1987"}}}},"details":{"species":{"genus":"Amathia","species":"tricornis","authorship":{"verbatim":"Busk ms in Chimonides, 1987","normalized":"Busk ex Chimonides 1987","authors":["Busk"],"originalAuth":{"authors":["Busk"],"exAuthors":{"authors":["Chimonides"],"year":{"year":"1987"}}}}}},"words":[{"verbatim":"Amathia","normalized":"Amathia","wordType":"GENUS","start":0,"end":7},{"verbatim":"tricornis","normalized":"tricornis","wordType":"SPECIES","start":8,"end":17},{"verbatim":"Busk","normalized":"Busk","wordType":"AUTHOR_WORD","start":18,"end":22},{"verbatim":"Chimonides","normalized":"Chimonides","wordType":"AUTHOR_WORD","start":29,"end":39},{"verbatim":"1987","normalized":"1987","wordType":"YEAR","start":41,"end":45}],"id":"fb349d1f-30f2-5e4a-a454-68159d362d58","parserVersion":"test_version"}
@@ -3073,7 +3297,7 @@ Canonical: Asplenium × inexpectatum
 Authorship: (E. L. Braun ex Friesner) Morton
 
 ```json
-{"parsed":true,"quality":2,"qualityWarnings":[{"quality":2,"warning":"Ex authors are not required"},{"quality":2,"warning":"Named hybrid"},{"quality":2,"warning":"Multiple adjacent space characters"}],"verbatim":"    Asplenium       X inexpectatum(E. L. Braun ex Friesner      )Morton","normalized":"Asplenium × inexpectatum (E. L. Braun ex Friesner) Morton","canonical":{"stemmed":"Asplenium inexpectat","simple":"Asplenium inexpectatum","full":"Asplenium × inexpectatum"},"cardinality":2,"authorship":{"verbatim":"(E. L. Braun ex Friesner      )Morton","normalized":"(E. L. Braun ex Friesner) Morton","authors":["E. L. Braun","Morton"],"originalAuth":{"authors":["E. L. Braun"],"exAuthors":{"authors":["Friesner"]}},"combinationAuth":{"authors":["Morton"]}},"hybrid":"NAMED_HYBRID","details":{"species":{"genus":"Asplenium","species":"inexpectatum (E. L. Braun ex Friesner) Morton","authorship":{"verbatim":"(E. L. Braun ex Friesner      )Morton","normalized":"(E. L. Braun ex Friesner) Morton","authors":["E. L. Braun","Morton"],"originalAuth":{"authors":["E. L. Braun"],"exAuthors":{"authors":["Friesner"]}},"combinationAuth":{"authors":["Morton"]}}}},"words":[{"verbatim":"Asplenium","normalized":"Asplenium","wordType":"GENUS","start":4,"end":13},{"verbatim":"X","normalized":"×","wordType":"HYBRID_CHAR","start":20,"end":21},{"verbatim":"inexpectatum","normalized":"inexpectatum","wordType":"SPECIES","start":22,"end":34},{"verbatim":"E.","normalized":"E.","wordType":"AUTHOR_WORD","start":35,"end":37},{"verbatim":"L.","normalized":"L.","wordType":"AUTHOR_WORD","start":38,"end":40},{"verbatim":"Braun","normalized":"Braun","wordType":"AUTHOR_WORD","start":41,"end":46},{"verbatim":"Friesner","normalized":"Friesner","wordType":"AUTHOR_WORD","start":50,"end":58},{"verbatim":"Morton","normalized":"Morton","wordType":"AUTHOR_WORD","start":65,"end":71}],"id":"a2c7a7ee-51c9-5f3a-8117-bffd799b39f4","parserVersion":"test_version"}
+{"parsed":true,"quality":2,"qualityWarnings":[{"quality":2,"warning":"Ex authors are not required"},{"quality":2,"warning":"Named hybrid"}],"verbatim":"    Asplenium       X inexpectatum(E. L. Braun ex Friesner      )Morton","normalized":"Asplenium × inexpectatum (E. L. Braun ex Friesner) Morton","canonical":{"stemmed":"Asplenium inexpectat","simple":"Asplenium inexpectatum","full":"Asplenium × inexpectatum"},"cardinality":2,"authorship":{"verbatim":"(E. L. Braun ex Friesner      )Morton","normalized":"(E. L. Braun ex Friesner) Morton","authors":["E. L. Braun","Morton"],"originalAuth":{"authors":["E. L. Braun"],"exAuthors":{"authors":["Friesner"]}},"combinationAuth":{"authors":["Morton"]}},"hybrid":"NAMED_HYBRID","details":{"species":{"genus":"Asplenium","species":"inexpectatum (E. L. Braun ex Friesner) Morton","authorship":{"verbatim":"(E. L. Braun ex Friesner      )Morton","normalized":"(E. L. Braun ex Friesner) Morton","authors":["E. L. Braun","Morton"],"originalAuth":{"authors":["E. L. Braun"],"exAuthors":{"authors":["Friesner"]}},"combinationAuth":{"authors":["Morton"]}}}},"words":[{"verbatim":"Asplenium","normalized":"Asplenium","wordType":"GENUS","start":4,"end":13},{"verbatim":"X","normalized":"×","wordType":"HYBRID_CHAR","start":20,"end":21},{"verbatim":"inexpectatum","normalized":"inexpectatum","wordType":"SPECIES","start":22,"end":34},{"verbatim":"E.","normalized":"E.","wordType":"AUTHOR_WORD","start":35,"end":37},{"verbatim":"L.","normalized":"L.","wordType":"AUTHOR_WORD","start":38,"end":40},{"verbatim":"Braun","normalized":"Braun","wordType":"AUTHOR_WORD","start":41,"end":46},{"verbatim":"Friesner","normalized":"Friesner","wordType":"AUTHOR_WORD","start":50,"end":58},{"verbatim":"Morton","normalized":"Morton","wordType":"AUTHOR_WORD","start":65,"end":71}],"id":"a2c7a7ee-51c9-5f3a-8117-bffd799b39f4","parserVersion":"test_version"}
 ```
 
 ### Names with a dash
@@ -3373,7 +3597,7 @@ Name: Procamallanus (Spirocamallanus) soodi Lakshmi & Kumari, 2001 nec (Gupta & 
 
 Canonical: Procamallanus soodi
 
-Authorship: Lakshmi & Kumari, 2001
+Authorship: Lakshmi & Kumari 2001
 
 ```json
 {"parsed":true,"quality":4,"qualityWarnings":[{"quality":4,"warning":"Unparsed tail"}],"verbatim":"Procamallanus (Spirocamallanus) soodi Lakshmi \u0026 Kumari, 2001 nec (Gupta \u0026 Masood, 1988)","normalized":"Procamallanus (Spirocamallanus) soodi Lakshmi \u0026 Kumari 2001","canonical":{"stemmed":"Procamallanus sood","simple":"Procamallanus soodi","full":"Procamallanus soodi"},"cardinality":2,"authorship":{"verbatim":"Lakshmi \u0026 Kumari, 2001","normalized":"Lakshmi \u0026 Kumari 2001","year":"2001","authors":["Lakshmi","Kumari"],"originalAuth":{"authors":["Lakshmi","Kumari"],"year":{"year":"2001"}}},"tail":" nec (Gupta \u0026 Masood, 1988)","details":{"species":{"genus":"Procamallanus","subgenus":"Spirocamallanus","species":"soodi","authorship":{"verbatim":"Lakshmi \u0026 Kumari, 2001","normalized":"Lakshmi \u0026 Kumari 2001","year":"2001","authors":["Lakshmi","Kumari"],"originalAuth":{"authors":["Lakshmi","Kumari"],"year":{"year":"2001"}}}}},"words":[{"verbatim":"Procamallanus","normalized":"Procamallanus","wordType":"GENUS","start":0,"end":13},{"verbatim":"Spirocamallanus","normalized":"Spirocamallanus","wordType":"INFRA_GENUS","start":15,"end":30},{"verbatim":"soodi","normalized":"soodi","wordType":"SPECIES","start":32,"end":37},{"verbatim":"Lakshmi","normalized":"Lakshmi","wordType":"AUTHOR_WORD","start":38,"end":45},{"verbatim":"Kumari","normalized":"Kumari","wordType":"AUTHOR_WORD","start":48,"end":54},{"verbatim":"2001","normalized":"2001","wordType":"YEAR","start":56,"end":60}],"id":"c024f8dd-f7e6-5add-869f-3f93e844ad1a","parserVersion":"test_version"}
@@ -3383,7 +3607,7 @@ Name: Membranipora minuscula Canu, 1911 non Hincks, 1882
 
 Canonical: Membranipora minuscula
 
-Authorship: Canu, 1911
+Authorship: Canu 1911
 
 ```json
 {"parsed":true,"quality":4,"qualityWarnings":[{"quality":4,"warning":"Unparsed tail"}],"verbatim":"Membranipora minuscula Canu, 1911 non Hincks, 1882","normalized":"Membranipora minuscula Canu 1911","canonical":{"stemmed":"Membranipora minuscul","simple":"Membranipora minuscula","full":"Membranipora minuscula"},"cardinality":2,"authorship":{"verbatim":"Canu, 1911","normalized":"Canu 1911","year":"1911","authors":["Canu"],"originalAuth":{"authors":["Canu"],"year":{"year":"1911"}}},"tail":" non Hincks, 1882","details":{"species":{"genus":"Membranipora","species":"minuscula","authorship":{"verbatim":"Canu, 1911","normalized":"Canu 1911","year":"1911","authors":["Canu"],"originalAuth":{"authors":["Canu"],"year":{"year":"1911"}}}}},"words":[{"verbatim":"Membranipora","normalized":"Membranipora","wordType":"GENUS","start":0,"end":12},{"verbatim":"minuscula","normalized":"minuscula","wordType":"SPECIES","start":13,"end":22},{"verbatim":"Canu","normalized":"Canu","wordType":"AUTHOR_WORD","start":23,"end":27},{"verbatim":"1911","normalized":"1911","wordType":"YEAR","start":29,"end":33}],"id":"80abde40-859e-5909-aedc-928699ec7d05","parserVersion":"test_version"}
@@ -3393,7 +3617,7 @@ Name: Proboscina subechinata Canu & Bassler, 1920 non d'Orbigny, 1853
 
 Canonical: Proboscina subechinata
 
-Authorship: Canu & Bassler, 1920
+Authorship: Canu & Bassler 1920
 
 ```json
 {"parsed":true,"quality":4,"qualityWarnings":[{"quality":4,"warning":"Unparsed tail"}],"verbatim":"Proboscina subechinata Canu \u0026 Bassler, 1920 non d'Orbigny, 1853","normalized":"Proboscina subechinata Canu \u0026 Bassler 1920","canonical":{"stemmed":"Proboscina subechinat","simple":"Proboscina subechinata","full":"Proboscina subechinata"},"cardinality":2,"authorship":{"verbatim":"Canu \u0026 Bassler, 1920","normalized":"Canu \u0026 Bassler 1920","year":"1920","authors":["Canu","Bassler"],"originalAuth":{"authors":["Canu","Bassler"],"year":{"year":"1920"}}},"tail":" non d'Orbigny, 1853","details":{"species":{"genus":"Proboscina","species":"subechinata","authorship":{"verbatim":"Canu \u0026 Bassler, 1920","normalized":"Canu \u0026 Bassler 1920","year":"1920","authors":["Canu","Bassler"],"originalAuth":{"authors":["Canu","Bassler"],"year":{"year":"1920"}}}}},"words":[{"verbatim":"Proboscina","normalized":"Proboscina","wordType":"GENUS","start":0,"end":10},{"verbatim":"subechinata","normalized":"subechinata","wordType":"SPECIES","start":11,"end":22},{"verbatim":"Canu","normalized":"Canu","wordType":"AUTHOR_WORD","start":23,"end":27},{"verbatim":"Bassler","normalized":"Bassler","wordType":"AUTHOR_WORD","start":30,"end":37},{"verbatim":"1920","normalized":"1920","wordType":"YEAR","start":39,"end":43}],"id":"34e075be-fee2-509b-b08b-e024bd2dbd6c","parserVersion":"test_version"}
@@ -3403,7 +3627,7 @@ Name: Porina reussi Meneghini in De Amicis, 1885 vide Neviani (1900)
 
 Canonical: Porina reussi
 
-Authorship: Meneghini in De Amicis, 1885
+Authorship: Meneghini ex De Amicis 1885
 
 ```json
 {"parsed":true,"quality":4,"qualityWarnings":[{"quality":4,"warning":"Unparsed tail"},{"quality":2,"warning":"Ex authors are not required"}],"verbatim":"Porina reussi Meneghini in De Amicis, 1885 vide Neviani (1900)","normalized":"Porina reussi Meneghini ex De Amicis 1885","canonical":{"stemmed":"Porina reuss","simple":"Porina reussi","full":"Porina reussi"},"cardinality":2,"authorship":{"verbatim":"Meneghini in De Amicis, 1885","normalized":"Meneghini ex De Amicis 1885","authors":["Meneghini"],"originalAuth":{"authors":["Meneghini"],"exAuthors":{"authors":["De Amicis"],"year":{"year":"1885"}}}},"tail":" vide Neviani (1900)","details":{"species":{"genus":"Porina","species":"reussi","authorship":{"verbatim":"Meneghini in De Amicis, 1885","normalized":"Meneghini ex De Amicis 1885","authors":["Meneghini"],"originalAuth":{"authors":["Meneghini"],"exAuthors":{"authors":["De Amicis"],"year":{"year":"1885"}}}}}},"words":[{"verbatim":"Porina","normalized":"Porina","wordType":"GENUS","start":0,"end":6},{"verbatim":"reussi","normalized":"reussi","wordType":"SPECIES","start":7,"end":13},{"verbatim":"Meneghini","normalized":"Meneghini","wordType":"AUTHOR_WORD","start":14,"end":23},{"verbatim":"De","normalized":"De","wordType":"AUTHOR_WORD","start":27,"end":29},{"verbatim":"Amicis","normalized":"Amicis","wordType":"AUTHOR_WORD","start":30,"end":36},{"verbatim":"1885","normalized":"1885","wordType":"YEAR","start":38,"end":42}],"id":"e2a85725-9ffb-5e1e-9bdc-9f34648ef1b6","parserVersion":"test_version"}
@@ -3532,6 +3756,16 @@ Authorship: Herbst & J. F. W. 1795
 
 ### Non-ASCII UTF-8 characters in a name
 
+Name: Seleuca chûjôi Voss, 1957
+
+Canonical: Seleuca chujoi
+
+Authorship: Voss 1957
+
+```json
+{"parsed":true,"quality":2,"qualityWarnings":[{"quality":2,"warning":"Non-standard characters in canonical"}],"verbatim":"Seleuca chûjôi Voss, 1957","normalized":"Seleuca chujoi Voss 1957","canonical":{"stemmed":"Seleuca chuio","simple":"Seleuca chujoi","full":"Seleuca chujoi"},"cardinality":2,"authorship":{"verbatim":"Voss, 1957","normalized":"Voss 1957","year":"1957","authors":["Voss"],"originalAuth":{"authors":["Voss"],"year":{"year":"1957"}}},"details":{"species":{"genus":"Seleuca","species":"chujoi","authorship":{"verbatim":"Voss, 1957","normalized":"Voss 1957","year":"1957","authors":["Voss"],"originalAuth":{"authors":["Voss"],"year":{"year":"1957"}}}}},"words":[{"verbatim":"Seleuca","normalized":"Seleuca","wordType":"GENUS","start":0,"end":7},{"verbatim":"chûjôi","normalized":"chujoi","wordType":"SPECIES","start":8,"end":14},{"verbatim":"Voss","normalized":"Voss","wordType":"AUTHOR_WORD","start":15,"end":19},{"verbatim":"1957","normalized":"1957","wordType":"YEAR","start":21,"end":25}],"id":"b6244666-9125-5473-8755-bb35ebbea769","parserVersion":"test_version"}
+```
+
 Name: Pleurotus ëous (Berk.) Sacc. 1887
 
 Canonical: Pleurotus eous
@@ -3604,6 +3838,16 @@ Authorship: Heiden ex Hustedt 1935
 
 ### Epithets with an apostrophe
 
+Name: Solanum tuberosum f. wila-k'oyu Ochoa
+
+Canonical: Solanum tuberosum f. wila-koyu
+
+Authorship: Ochoa
+
+```json
+{"parsed":true,"quality":3,"qualityWarnings":[{"quality":3,"warning":"Apostrophe is not allowed in canonical"}],"verbatim":"Solanum tuberosum f. wila-k'oyu Ochoa","normalized":"Solanum tuberosum f. wila-koyu Ochoa","canonical":{"stemmed":"Solanum tuberos wila-koy","simple":"Solanum tuberosum wila-koyu","full":"Solanum tuberosum f. wila-koyu"},"cardinality":3,"authorship":{"verbatim":"Ochoa","normalized":"Ochoa","authors":["Ochoa"],"originalAuth":{"authors":["Ochoa"]}},"details":{"infraspecies":{"genus":"Solanum","species":"tuberosum","infraspecies":[{"value":"wila-koyu","rank":"f.","authorship":{"verbatim":"Ochoa","normalized":"Ochoa","authors":["Ochoa"],"originalAuth":{"authors":["Ochoa"]}}}]}},"words":[{"verbatim":"Solanum","normalized":"Solanum","wordType":"GENUS","start":0,"end":7},{"verbatim":"tuberosum","normalized":"tuberosum","wordType":"SPECIES","start":8,"end":17},{"verbatim":"f.","normalized":"f.","wordType":"RANK","start":18,"end":20},{"verbatim":"wila-k'oyu","normalized":"wila-koyu","wordType":"INFRASPECIES","start":21,"end":31},{"verbatim":"Ochoa","normalized":"Ochoa","wordType":"AUTHOR_WORD","start":32,"end":37}],"id":"b45b0e75-d1d0-53f2-ab80-f5a99d24a385","parserVersion":"test_version"}
+```
+
 Name: Junellia o'donelli Moldenke, 1946
 
 Canonical: Junellia odonelli
@@ -3631,7 +3875,7 @@ Canonical: Phrynosoma mcallii
 Authorship:
 
 ```json
-{"parsed":true,"quality":3,"qualityWarnings":[{"quality":3,"warning":"Not an ASCII apostrophe"},{"quality":3,"warning":"Apostrophe is not allowed in canonical"}],"verbatim":"Phrynosoma m’callii","normalized":"Phrynosoma mcallii","canonical":{"stemmed":"Phrynosoma mcalli","simple":"Phrynosoma mcallii","full":"Phrynosoma mcallii"},"cardinality":2,"details":{"species":{"genus":"Phrynosoma","species":"mcallii"}},"words":[{"verbatim":"Phrynosoma","normalized":"Phrynosoma","wordType":"GENUS","start":0,"end":10},{"verbatim":"m’callii","normalized":"mcallii","wordType":"SPECIES","start":11,"end":19}],"id":"7907df5c-50f2-532c-a8fe-e5b75f924f73","parserVersion":"test_version"}
+{"parsed":true,"quality":3,"qualityWarnings":[{"quality":3,"warning":"Apostrophe is not allowed in canonical"},{"quality":3,"warning":"Not an ASCII apostrophe"}],"verbatim":"Phrynosoma m’callii","normalized":"Phrynosoma mcallii","canonical":{"stemmed":"Phrynosoma mcalli","simple":"Phrynosoma mcallii","full":"Phrynosoma mcallii"},"cardinality":2,"details":{"species":{"genus":"Phrynosoma","species":"mcallii"}},"words":[{"verbatim":"Phrynosoma","normalized":"Phrynosoma","wordType":"GENUS","start":0,"end":10},{"verbatim":"m’callii","normalized":"mcallii","wordType":"SPECIES","start":11,"end":19}],"id":"7907df5c-50f2-532c-a8fe-e5b75f924f73","parserVersion":"test_version"}
 ```
 
 Name: Arca m'coyi Tenison-Woods, 1878
@@ -3688,7 +3932,7 @@ Authorship: F. A. Barkley
 
 Name: Galega officinalis (L.) L´Hèr. subsp. mackayana (O'Flannagan) Mc Inley var. petiolata (È. Neé) Brüch.
 
-Canonical: Galega officinalis mackayana petiolata
+Canonical: Galega officinalis subsp. mackayana var. petiolata
 
 Authorship: (È. Neé) Brüch.
 
@@ -3698,7 +3942,7 @@ Authorship: (È. Neé) Brüch.
 
 Name: Galega officinalis (L.) L`Hèr. subsp. mackayana (O'Flannagan) Mc Inley var. petiolata (È. Neé) Brüch.
 
-Canonical: Galega officinalis mackayana petiolata
+Canonical: Galega officinalis subsp. mackayana var. petiolata
 
 Authorship: (È. Neé) Brüch.
 
@@ -3708,7 +3952,7 @@ Authorship: (È. Neé) Brüch.
 
 Name: Galega officinalis (L.) L'Hèr. subsp. mackayana (O'Flannagan) Mc Inley var. petiolata (È. Neé) Brüch.
 
-Canonical: Galega officinalis mackayana petiolata
+Canonical: Galega officinalis subsp. mackayana var. petiolata
 
 Authorship: (È. Neé) Brüch.
 
@@ -4124,7 +4368,7 @@ Canonical: Gemmula cosmoi
 Authorship:
 
 ```json
-{"parsed":true,"quality":4,"qualityWarnings":[{"quality":4,"warning":"Unparsed tail"},{"quality":4,"warning":"Name comparison"}],"verbatim":"Gemmula cf. cosmoi NP-2008","normalized":"Gemmula cf. cosmoi","canonical":{"stemmed":"Gemmula cosmo","simple":"Gemmula cosmoi","full":"Gemmula cosmoi"},"cardinality":2,"surrogate":"COMPARISON","tail":" NP-2008","details":{"comparison":{"genus":"Gemmula","species":"cosmoi","comparisonMarker":"cf."}},"words":[{"verbatim":"Gemmula","normalized":"Gemmula","wordType":"GENUS","start":0,"end":7},{"verbatim":"cf.","normalized":"cf.","wordType":"COMPARISON_MARKER","start":8,"end":11},{"verbatim":"cosmoi","normalized":"cosmoi","wordType":"SPECIES","start":12,"end":18}],"id":"87a593b3-2383-5f1b-8772-85e0a4a31b79","parserVersion":"test_version"}
+{"parsed":true,"quality":4,"qualityWarnings":[{"quality":4,"warning":"Name comparison"},{"quality":4,"warning":"Unparsed tail"}],"verbatim":"Gemmula cf. cosmoi NP-2008","normalized":"Gemmula cf. cosmoi","canonical":{"stemmed":"Gemmula cosmo","simple":"Gemmula cosmoi","full":"Gemmula cosmoi"},"cardinality":2,"surrogate":"COMPARISON","tail":" NP-2008","details":{"comparison":{"genus":"Gemmula","species":"cosmoi","comparisonMarker":"cf."}},"words":[{"verbatim":"Gemmula","normalized":"Gemmula","wordType":"GENUS","start":0,"end":7},{"verbatim":"cf.","normalized":"cf.","wordType":"COMPARISON_MARKER","start":8,"end":11},{"verbatim":"cosmoi","normalized":"cosmoi","wordType":"SPECIES","start":12,"end":18}],"id":"87a593b3-2383-5f1b-8772-85e0a4a31b79","parserVersion":"test_version"}
 ```
 
 ### Surrogate Name-Strings
@@ -4191,6 +4435,16 @@ Authorship:
 
 ```json
 {"parsed":false,"quality":0,"verbatim":"Cre expression vector","cardinality":0,"virus":true,"id":"9a282683-c49b-52dc-817f-0281d5b4b831","parserVersion":"test_version"}
+```
+
+Name: Cyanophage
+
+Canonical:
+
+Authorship:
+
+```json
+{"parsed":false,"quality":0,"verbatim":"Cyanophage","cardinality":0,"virus":true,"id":"050da5da-716e-5282-97f0-0ea9e375bbf0","parserVersion":"test_version"}
 ```
 
 Name: Drosophila sturtevanti rhabdovirus
@@ -4770,7 +5024,7 @@ Canonical: Astatotilapia bloyeti
 Authorship:
 
 ```json
-{"parsed":true,"quality":4,"qualityWarnings":[{"quality":4,"warning":"Unparsed tail"},{"quality":4,"warning":"Name comparison"}],"verbatim":"Astatotilapia cf. bloyeti OS-2017","normalized":"Astatotilapia cf. bloyeti","canonical":{"stemmed":"Astatotilapia bloyet","simple":"Astatotilapia bloyeti","full":"Astatotilapia bloyeti"},"cardinality":2,"surrogate":"COMPARISON","tail":" OS-2017","details":{"comparison":{"genus":"Astatotilapia","species":"bloyeti","comparisonMarker":"cf."}},"words":[{"verbatim":"Astatotilapia","normalized":"Astatotilapia","wordType":"GENUS","start":0,"end":13},{"verbatim":"cf.","normalized":"cf.","wordType":"COMPARISON_MARKER","start":14,"end":17},{"verbatim":"bloyeti","normalized":"bloyeti","wordType":"SPECIES","start":18,"end":25}],"id":"c841aa1d-78ea-5b6a-93fc-e18c54164144","parserVersion":"test_version"}
+{"parsed":true,"quality":4,"qualityWarnings":[{"quality":4,"warning":"Name comparison"},{"quality":4,"warning":"Unparsed tail"}],"verbatim":"Astatotilapia cf. bloyeti OS-2017","normalized":"Astatotilapia cf. bloyeti","canonical":{"stemmed":"Astatotilapia bloyet","simple":"Astatotilapia bloyeti","full":"Astatotilapia bloyeti"},"cardinality":2,"surrogate":"COMPARISON","tail":" OS-2017","details":{"comparison":{"genus":"Astatotilapia","species":"bloyeti","comparisonMarker":"cf."}},"words":[{"verbatim":"Astatotilapia","normalized":"Astatotilapia","wordType":"GENUS","start":0,"end":13},{"verbatim":"cf.","normalized":"cf.","wordType":"COMPARISON_MARKER","start":14,"end":17},{"verbatim":"bloyeti","normalized":"bloyeti","wordType":"SPECIES","start":18,"end":25}],"id":"c841aa1d-78ea-5b6a-93fc-e18c54164144","parserVersion":"test_version"}
 ```
 
 ### Double parenthesis
@@ -5251,17 +5505,6 @@ Authorship: (Nakai) 't Hart
 ```
 
 ### Discard apostrophe with dash (rare, needs further investigation)
-
-<!-- incorrectly parsed, but we will live with it for now-->
-Name: Solanum tuberosum wila-k'oy
-
-Canonical: Solanum tuberosum
-
-Authorship:
-
-```json
-{"parsed":true,"quality":4,"qualityWarnings":[{"quality":4,"warning":"Unparsed tail"}],"verbatim":"Solanum tuberosum wila-k'oy","normalized":"Solanum tuberosum","canonical":{"stemmed":"Solanum tuberos","simple":"Solanum tuberosum","full":"Solanum tuberosum"},"cardinality":2,"tail":" wila-k'oy","details":{"species":{"genus":"Solanum","species":"tuberosum"}},"words":[{"verbatim":"Solanum","normalized":"Solanum","wordType":"GENUS","start":0,"end":7},{"verbatim":"tuberosum","normalized":"tuberosum","wordType":"SPECIES","start":8,"end":17}],"id":"3d40713c-3b98-5b38-a3e8-555698722078","parserVersion":"test_version"}
-```
 
 <!-- correctly parsed -->
 Name: Solanum juzepczukii janck'o-ckaisalla
@@ -6193,6 +6436,256 @@ Authorship:
 {"parsed":true,"quality":4,"qualityWarnings":[{"quality":4,"warning":"Unparsed tail"}],"verbatim":"Puya acris hort.","normalized":"Puya acris","canonical":{"stemmed":"Puya acr","simple":"Puya acris","full":"Puya acris"},"cardinality":2,"tail":" hort.","details":{"species":{"genus":"Puya","species":"acris"}},"words":[{"verbatim":"Puya","normalized":"Puya","wordType":"GENUS","start":0,"end":4},{"verbatim":"acris","normalized":"acris","wordType":"SPECIES","start":5,"end":10}],"id":"78228a5e-dcd3-58f9-bf21-b452c378f6ee","parserVersion":"test_version"}
 ```
 
+### Exceptions from ranks (rank-line epithets)
+
+Name: Selenops ab Logunov & Jäger, 2015
+
+Canonical: Selenops ab
+
+Authorship: Logunov & Jäger 2015
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Selenops ab Logunov \u0026 Jäger, 2015","normalized":"Selenops ab Logunov \u0026 Jäger 2015","canonical":{"stemmed":"Selenops ab","simple":"Selenops ab","full":"Selenops ab"},"cardinality":2,"authorship":{"verbatim":"Logunov \u0026 Jäger, 2015","normalized":"Logunov \u0026 Jäger 2015","year":"2015","authors":["Logunov","Jäger"],"originalAuth":{"authors":["Logunov","Jäger"],"year":{"year":"2015"}}},"details":{"species":{"genus":"Selenops","species":"ab","authorship":{"verbatim":"Logunov \u0026 Jäger, 2015","normalized":"Logunov \u0026 Jäger 2015","year":"2015","authors":["Logunov","Jäger"],"originalAuth":{"authors":["Logunov","Jäger"],"year":{"year":"2015"}}}}},"words":[{"verbatim":"Selenops","normalized":"Selenops","wordType":"GENUS","start":0,"end":8},{"verbatim":"ab","normalized":"ab","wordType":"SPECIES","start":9,"end":11},{"verbatim":"Logunov","normalized":"Logunov","wordType":"AUTHOR_WORD","start":12,"end":19},{"verbatim":"Jäger","normalized":"Jäger","wordType":"AUTHOR_WORD","start":22,"end":27},{"verbatim":"2015","normalized":"2015","wordType":"YEAR","start":29,"end":33}],"id":"03859723-914e-5c1b-89ee-93e43fa98b6a","parserVersion":"test_version"}
+```
+
+Name: Helophorus (Lihelophorus) ser Zaitzev, 1908
+
+Canonical: Helophorus ser
+
+Authorship: Zaitzev 1908
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Helophorus (Lihelophorus) ser Zaitzev, 1908","normalized":"Helophorus (Lihelophorus) ser Zaitzev 1908","canonical":{"stemmed":"Helophorus ser","simple":"Helophorus ser","full":"Helophorus ser"},"cardinality":2,"authorship":{"verbatim":"Zaitzev, 1908","normalized":"Zaitzev 1908","year":"1908","authors":["Zaitzev"],"originalAuth":{"authors":["Zaitzev"],"year":{"year":"1908"}}},"details":{"species":{"genus":"Helophorus","subgenus":"Lihelophorus","species":"ser","authorship":{"verbatim":"Zaitzev, 1908","normalized":"Zaitzev 1908","year":"1908","authors":["Zaitzev"],"originalAuth":{"authors":["Zaitzev"],"year":{"year":"1908"}}}}},"words":[{"verbatim":"Helophorus","normalized":"Helophorus","wordType":"GENUS","start":0,"end":10},{"verbatim":"Lihelophorus","normalized":"Lihelophorus","wordType":"INFRA_GENUS","start":12,"end":24},{"verbatim":"ser","normalized":"ser","wordType":"SPECIES","start":26,"end":29},{"verbatim":"Zaitzev","normalized":"Zaitzev","wordType":"AUTHOR_WORD","start":30,"end":37},{"verbatim":"1908","normalized":"1908","wordType":"YEAR","start":39,"end":43}],"id":"50392bf7-88e2-51fe-83d4-642dc0e2a887","parserVersion":"test_version"}
+```
+
+Name: Serina subser Gredler, 1898
+
+Canonical: Serina subser
+
+Authorship: Gredler 1898
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Serina subser Gredler, 1898","normalized":"Serina subser Gredler 1898","canonical":{"stemmed":"Serina subser","simple":"Serina subser","full":"Serina subser"},"cardinality":2,"authorship":{"verbatim":"Gredler, 1898","normalized":"Gredler 1898","year":"1898","authors":["Gredler"],"originalAuth":{"authors":["Gredler"],"year":{"year":"1898"}}},"details":{"species":{"genus":"Serina","species":"subser","authorship":{"verbatim":"Gredler, 1898","normalized":"Gredler 1898","year":"1898","authors":["Gredler"],"originalAuth":{"authors":["Gredler"],"year":{"year":"1898"}}}}},"words":[{"verbatim":"Serina","normalized":"Serina","wordType":"GENUS","start":0,"end":6},{"verbatim":"subser","normalized":"subser","wordType":"SPECIES","start":7,"end":13},{"verbatim":"Gredler","normalized":"Gredler","wordType":"AUTHOR_WORD","start":14,"end":21},{"verbatim":"1898","normalized":"1898","wordType":"YEAR","start":23,"end":27}],"id":"e769d367-a02c-5079-9ae2-472c54123412","parserVersion":"test_version"}
+```
+
+Name: Serina ser Gredler, 1898
+
+Canonical: Serina ser
+
+Authorship: Gredler 1898
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Serina ser Gredler, 1898","normalized":"Serina ser Gredler 1898","canonical":{"stemmed":"Serina ser","simple":"Serina ser","full":"Serina ser"},"cardinality":2,"authorship":{"verbatim":"Gredler, 1898","normalized":"Gredler 1898","year":"1898","authors":["Gredler"],"originalAuth":{"authors":["Gredler"],"year":{"year":"1898"}}},"details":{"species":{"genus":"Serina","species":"ser","authorship":{"verbatim":"Gredler, 1898","normalized":"Gredler 1898","year":"1898","authors":["Gredler"],"originalAuth":{"authors":["Gredler"],"year":{"year":"1898"}}}}},"words":[{"verbatim":"Serina","normalized":"Serina","wordType":"GENUS","start":0,"end":6},{"verbatim":"ser","normalized":"ser","wordType":"SPECIES","start":7,"end":10},{"verbatim":"Gredler","normalized":"Gredler","wordType":"AUTHOR_WORD","start":11,"end":18},{"verbatim":"1898","normalized":"1898","wordType":"YEAR","start":20,"end":24}],"id":"a271dad8-c530-5016-b8d0-881b4863dc6a","parserVersion":"test_version"}
+```
+
+### Exceptions from author prefixes (prefix-like epithets)
+
+Name: Campylosphaera dela (M.N.Bramlette & F.R.Sullivan) W.W.Hay & H.Mohler
+
+Canonical: Campylosphaera dela
+
+Authorship: (M. N. Bramlette & F. R. Sullivan) W. W. Hay & H. Mohler
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Campylosphaera dela (M.N.Bramlette \u0026 F.R.Sullivan) W.W.Hay \u0026 H.Mohler","normalized":"Campylosphaera dela (M. N. Bramlette \u0026 F. R. Sullivan) W. W. Hay \u0026 H. Mohler","canonical":{"stemmed":"Campylosphaera del","simple":"Campylosphaera dela","full":"Campylosphaera dela"},"cardinality":2,"authorship":{"verbatim":"(M.N.Bramlette \u0026 F.R.Sullivan) W.W.Hay \u0026 H.Mohler","normalized":"(M. N. Bramlette \u0026 F. R. Sullivan) W. W. Hay \u0026 H. Mohler","authors":["M. N. Bramlette","F. R. Sullivan","W. W. Hay","H. Mohler"],"originalAuth":{"authors":["M. N. Bramlette","F. R. Sullivan"]},"combinationAuth":{"authors":["W. W. Hay","H. Mohler"]}},"details":{"species":{"genus":"Campylosphaera","species":"dela","authorship":{"verbatim":"(M.N.Bramlette \u0026 F.R.Sullivan) W.W.Hay \u0026 H.Mohler","normalized":"(M. N. Bramlette \u0026 F. R. Sullivan) W. W. Hay \u0026 H. Mohler","authors":["M. N. Bramlette","F. R. Sullivan","W. W. Hay","H. Mohler"],"originalAuth":{"authors":["M. N. Bramlette","F. R. Sullivan"]},"combinationAuth":{"authors":["W. W. Hay","H. Mohler"]}}}},"words":[{"verbatim":"Campylosphaera","normalized":"Campylosphaera","wordType":"GENUS","start":0,"end":14},{"verbatim":"dela","normalized":"dela","wordType":"SPECIES","start":15,"end":19},{"verbatim":"M.","normalized":"M.","wordType":"AUTHOR_WORD","start":21,"end":23},{"verbatim":"N.","normalized":"N.","wordType":"AUTHOR_WORD","start":23,"end":25},{"verbatim":"Bramlette","normalized":"Bramlette","wordType":"AUTHOR_WORD","start":25,"end":34},{"verbatim":"F.","normalized":"F.","wordType":"AUTHOR_WORD","start":37,"end":39},{"verbatim":"R.","normalized":"R.","wordType":"AUTHOR_WORD","start":39,"end":41},{"verbatim":"Sullivan","normalized":"Sullivan","wordType":"AUTHOR_WORD","start":41,"end":49},{"verbatim":"W.","normalized":"W.","wordType":"AUTHOR_WORD","start":51,"end":53},{"verbatim":"W.","normalized":"W.","wordType":"AUTHOR_WORD","start":53,"end":55},{"verbatim":"Hay","normalized":"Hay","wordType":"AUTHOR_WORD","start":55,"end":58},{"verbatim":"H.","normalized":"H.","wordType":"AUTHOR_WORD","start":61,"end":63},{"verbatim":"Mohler","normalized":"Mohler","wordType":"AUTHOR_WORD","start":63,"end":69}],"id":"3746bbe1-c63b-56ba-9591-d18767dd18a6","parserVersion":"test_version"}
+```
+
+Name: Antaplaga dela Druce, 1904
+
+Canonical: Antaplaga dela
+
+Authorship: Druce 1904
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Antaplaga dela Druce, 1904","normalized":"Antaplaga dela Druce 1904","canonical":{"stemmed":"Antaplaga del","simple":"Antaplaga dela","full":"Antaplaga dela"},"cardinality":2,"authorship":{"verbatim":"Druce, 1904","normalized":"Druce 1904","year":"1904","authors":["Druce"],"originalAuth":{"authors":["Druce"],"year":{"year":"1904"}}},"details":{"species":{"genus":"Antaplaga","species":"dela","authorship":{"verbatim":"Druce, 1904","normalized":"Druce 1904","year":"1904","authors":["Druce"],"originalAuth":{"authors":["Druce"],"year":{"year":"1904"}}}}},"words":[{"verbatim":"Antaplaga","normalized":"Antaplaga","wordType":"GENUS","start":0,"end":9},{"verbatim":"dela","normalized":"dela","wordType":"SPECIES","start":10,"end":14},{"verbatim":"Druce","normalized":"Druce","wordType":"AUTHOR_WORD","start":15,"end":20},{"verbatim":"1904","normalized":"1904","wordType":"YEAR","start":22,"end":26}],"id":"061c7413-a5eb-50d0-ab38-ebc27502441b","parserVersion":"test_version"}
+```
+
+Name: Baeolidia dela (Er. Marcus & Ev. Marcus, 1960)
+
+Canonical: Baeolidia dela
+
+Authorship: (Er. Marcus & Ev. Marcus 1960)
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Baeolidia dela (Er. Marcus \u0026 Ev. Marcus, 1960)","normalized":"Baeolidia dela (Er. Marcus \u0026 Ev. Marcus 1960)","canonical":{"stemmed":"Baeolidia del","simple":"Baeolidia dela","full":"Baeolidia dela"},"cardinality":2,"authorship":{"verbatim":"(Er. Marcus \u0026 Ev. Marcus, 1960)","normalized":"(Er. Marcus \u0026 Ev. Marcus 1960)","year":"1960","authors":["Er. Marcus","Ev. Marcus"],"originalAuth":{"authors":["Er. Marcus","Ev. Marcus"],"year":{"year":"1960"}}},"details":{"species":{"genus":"Baeolidia","species":"dela","authorship":{"verbatim":"(Er. Marcus \u0026 Ev. Marcus, 1960)","normalized":"(Er. Marcus \u0026 Ev. Marcus 1960)","year":"1960","authors":["Er. Marcus","Ev. Marcus"],"originalAuth":{"authors":["Er. Marcus","Ev. Marcus"],"year":{"year":"1960"}}}}},"words":[{"verbatim":"Baeolidia","normalized":"Baeolidia","wordType":"GENUS","start":0,"end":9},{"verbatim":"dela","normalized":"dela","wordType":"SPECIES","start":10,"end":14},{"verbatim":"Er.","normalized":"Er.","wordType":"AUTHOR_WORD","start":16,"end":19},{"verbatim":"Marcus","normalized":"Marcus","wordType":"AUTHOR_WORD","start":20,"end":26},{"verbatim":"Ev.","normalized":"Ev.","wordType":"AUTHOR_WORD","start":29,"end":32},{"verbatim":"Marcus","normalized":"Marcus","wordType":"AUTHOR_WORD","start":33,"end":39},{"verbatim":"1960","normalized":"1960","wordType":"YEAR","start":41,"end":45}],"id":"72c7698c-901d-5b68-924c-4ec42a658bb9","parserVersion":"test_version"}
+```
+Name: Dicentria dela Druce, 1894
+
+Canonical: Dicentria dela
+
+Authorship: Druce 1894
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Dicentria dela Druce, 1894","normalized":"Dicentria dela Druce 1894","canonical":{"stemmed":"Dicentria del","simple":"Dicentria dela","full":"Dicentria dela"},"cardinality":2,"authorship":{"verbatim":"Druce, 1894","normalized":"Druce 1894","year":"1894","authors":["Druce"],"originalAuth":{"authors":["Druce"],"year":{"year":"1894"}}},"details":{"species":{"genus":"Dicentria","species":"dela","authorship":{"verbatim":"Druce, 1894","normalized":"Druce 1894","year":"1894","authors":["Druce"],"originalAuth":{"authors":["Druce"],"year":{"year":"1894"}}}}},"words":[{"verbatim":"Dicentria","normalized":"Dicentria","wordType":"GENUS","start":0,"end":9},{"verbatim":"dela","normalized":"dela","wordType":"SPECIES","start":10,"end":14},{"verbatim":"Druce","normalized":"Druce","wordType":"AUTHOR_WORD","start":15,"end":20},{"verbatim":"1894","normalized":"1894","wordType":"YEAR","start":22,"end":26}],"id":"207f6ad0-14c0-529e-9808-fa33b47a82ac","parserVersion":"test_version"}
+```
+
+Name: Eulaira dela Chamberlin & Ivie, 1933
+
+Canonical: Eulaira dela
+
+Authorship: Chamberlin & Ivie 1933
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Eulaira dela Chamberlin \u0026 Ivie, 1933","normalized":"Eulaira dela Chamberlin \u0026 Ivie 1933","canonical":{"stemmed":"Eulaira del","simple":"Eulaira dela","full":"Eulaira dela"},"cardinality":2,"authorship":{"verbatim":"Chamberlin \u0026 Ivie, 1933","normalized":"Chamberlin \u0026 Ivie 1933","year":"1933","authors":["Chamberlin","Ivie"],"originalAuth":{"authors":["Chamberlin","Ivie"],"year":{"year":"1933"}}},"details":{"species":{"genus":"Eulaira","species":"dela","authorship":{"verbatim":"Chamberlin \u0026 Ivie, 1933","normalized":"Chamberlin \u0026 Ivie 1933","year":"1933","authors":["Chamberlin","Ivie"],"originalAuth":{"authors":["Chamberlin","Ivie"],"year":{"year":"1933"}}}}},"words":[{"verbatim":"Eulaira","normalized":"Eulaira","wordType":"GENUS","start":0,"end":7},{"verbatim":"dela","normalized":"dela","wordType":"SPECIES","start":8,"end":12},{"verbatim":"Chamberlin","normalized":"Chamberlin","wordType":"AUTHOR_WORD","start":13,"end":23},{"verbatim":"Ivie","normalized":"Ivie","wordType":"AUTHOR_WORD","start":26,"end":30},{"verbatim":"1933","normalized":"1933","wordType":"YEAR","start":32,"end":36}],"id":"160ef9a2-f484-57bf-b4ac-5721fb0e4cfc","parserVersion":"test_version"}
+```
+
+Name: Paralvinella dela Detinova, 1988
+
+Canonical: Paralvinella dela
+
+Authorship: Detinova 1988
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Paralvinella dela Detinova, 1988","normalized":"Paralvinella dela Detinova 1988","canonical":{"stemmed":"Paralvinella del","simple":"Paralvinella dela","full":"Paralvinella dela"},"cardinality":2,"authorship":{"verbatim":"Detinova, 1988","normalized":"Detinova 1988","year":"1988","authors":["Detinova"],"originalAuth":{"authors":["Detinova"],"year":{"year":"1988"}}},"details":{"species":{"genus":"Paralvinella","species":"dela","authorship":{"verbatim":"Detinova, 1988","normalized":"Detinova 1988","year":"1988","authors":["Detinova"],"originalAuth":{"authors":["Detinova"],"year":{"year":"1988"}}}}},"words":[{"verbatim":"Paralvinella","normalized":"Paralvinella","wordType":"GENUS","start":0,"end":12},{"verbatim":"dela","normalized":"dela","wordType":"SPECIES","start":13,"end":17},{"verbatim":"Detinova","normalized":"Detinova","wordType":"AUTHOR_WORD","start":18,"end":26},{"verbatim":"1988","normalized":"1988","wordType":"YEAR","start":28,"end":32}],"id":"111a303b-327b-542f-8a6c-9c0aae97e142","parserVersion":"test_version"}
+```
+
+Name: Scoparia dela Clarke, 1965
+
+Canonical: Scoparia dela
+
+Authorship: Clarke 1965
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Scoparia dela Clarke, 1965","normalized":"Scoparia dela Clarke 1965","canonical":{"stemmed":"Scoparia del","simple":"Scoparia dela","full":"Scoparia dela"},"cardinality":2,"authorship":{"verbatim":"Clarke, 1965","normalized":"Clarke 1965","year":"1965","authors":["Clarke"],"originalAuth":{"authors":["Clarke"],"year":{"year":"1965"}}},"details":{"species":{"genus":"Scoparia","species":"dela","authorship":{"verbatim":"Clarke, 1965","normalized":"Clarke 1965","year":"1965","authors":["Clarke"],"originalAuth":{"authors":["Clarke"],"year":{"year":"1965"}}}}},"words":[{"verbatim":"Scoparia","normalized":"Scoparia","wordType":"GENUS","start":0,"end":8},{"verbatim":"dela","normalized":"dela","wordType":"SPECIES","start":9,"end":13},{"verbatim":"Clarke","normalized":"Clarke","wordType":"AUTHOR_WORD","start":14,"end":20},{"verbatim":"1965","normalized":"1965","wordType":"YEAR","start":22,"end":26}],"id":"b2efca41-c18e-58f8-9300-0f542037e6a2","parserVersion":"test_version"}
+```
+Name: Tortolena dela Chamberlin & Ivie, 1941
+
+Canonical: Tortolena dela
+
+Authorship: Chamberlin & Ivie 1941
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Tortolena dela Chamberlin \u0026 Ivie, 1941","normalized":"Tortolena dela Chamberlin \u0026 Ivie 1941","canonical":{"stemmed":"Tortolena del","simple":"Tortolena dela","full":"Tortolena dela"},"cardinality":2,"authorship":{"verbatim":"Chamberlin \u0026 Ivie, 1941","normalized":"Chamberlin \u0026 Ivie 1941","year":"1941","authors":["Chamberlin","Ivie"],"originalAuth":{"authors":["Chamberlin","Ivie"],"year":{"year":"1941"}}},"details":{"species":{"genus":"Tortolena","species":"dela","authorship":{"verbatim":"Chamberlin \u0026 Ivie, 1941","normalized":"Chamberlin \u0026 Ivie 1941","year":"1941","authors":["Chamberlin","Ivie"],"originalAuth":{"authors":["Chamberlin","Ivie"],"year":{"year":"1941"}}}}},"words":[{"verbatim":"Tortolena","normalized":"Tortolena","wordType":"GENUS","start":0,"end":9},{"verbatim":"dela","normalized":"dela","wordType":"SPECIES","start":10,"end":14},{"verbatim":"Chamberlin","normalized":"Chamberlin","wordType":"AUTHOR_WORD","start":15,"end":25},{"verbatim":"Ivie","normalized":"Ivie","wordType":"AUTHOR_WORD","start":28,"end":32},{"verbatim":"1941","normalized":"1941","wordType":"YEAR","start":34,"end":38}],"id":"760c81cc-b336-58a3-888d-5fd85196e287","parserVersion":"test_version"}
+```
+
+Name: Semiothisa da Dyar, 1916
+
+Canonical: Semiothisa da
+
+Authorship: Dyar 1916
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Semiothisa da Dyar, 1916","normalized":"Semiothisa da Dyar 1916","canonical":{"stemmed":"Semiothisa da","simple":"Semiothisa da","full":"Semiothisa da"},"cardinality":2,"authorship":{"verbatim":"Dyar, 1916","normalized":"Dyar 1916","year":"1916","authors":["Dyar"],"originalAuth":{"authors":["Dyar"],"year":{"year":"1916"}}},"details":{"species":{"genus":"Semiothisa","species":"da","authorship":{"verbatim":"Dyar, 1916","normalized":"Dyar 1916","year":"1916","authors":["Dyar"],"originalAuth":{"authors":["Dyar"],"year":{"year":"1916"}}}}},"words":[{"verbatim":"Semiothisa","normalized":"Semiothisa","wordType":"GENUS","start":0,"end":10},{"verbatim":"da","normalized":"da","wordType":"SPECIES","start":11,"end":13},{"verbatim":"Dyar","normalized":"Dyar","wordType":"AUTHOR_WORD","start":14,"end":18},{"verbatim":"1916","normalized":"1916","wordType":"YEAR","start":20,"end":24}],"id":"441392b1-1e13-5eb1-afbe-393f3bdfd8c0","parserVersion":"test_version"}
+```
+
+Name: Gnathopleustes den (J.L. Barnard, 1969)
+
+Canonical: Gnathopleustes den
+
+Authorship: (J. L. Barnard 1969)
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Gnathopleustes den (J.L. Barnard, 1969)","normalized":"Gnathopleustes den (J. L. Barnard 1969)","canonical":{"stemmed":"Gnathopleustes den","simple":"Gnathopleustes den","full":"Gnathopleustes den"},"cardinality":2,"authorship":{"verbatim":"(J.L. Barnard, 1969)","normalized":"(J. L. Barnard 1969)","year":"1969","authors":["J. L. Barnard"],"originalAuth":{"authors":["J. L. Barnard"],"year":{"year":"1969"}}},"details":{"species":{"genus":"Gnathopleustes","species":"den","authorship":{"verbatim":"(J.L. Barnard, 1969)","normalized":"(J. L. Barnard 1969)","year":"1969","authors":["J. L. Barnard"],"originalAuth":{"authors":["J. L. Barnard"],"year":{"year":"1969"}}}}},"words":[{"verbatim":"Gnathopleustes","normalized":"Gnathopleustes","wordType":"GENUS","start":0,"end":14},{"verbatim":"den","normalized":"den","wordType":"SPECIES","start":15,"end":18},{"verbatim":"J.","normalized":"J.","wordType":"AUTHOR_WORD","start":20,"end":22},{"verbatim":"L.","normalized":"L.","wordType":"AUTHOR_WORD","start":22,"end":24},{"verbatim":"Barnard","normalized":"Barnard","wordType":"AUTHOR_WORD","start":25,"end":32},{"verbatim":"1969","normalized":"1969","wordType":"YEAR","start":34,"end":38}],"id":"d70496f0-2bd6-50c9-9d87-3e6ae48e6793","parserVersion":"test_version"}
+```
+
+Name: Agnetina den Cao, T.K.T. & Bae, 2006
+
+Canonical: Agnetina den
+
+Authorship: Cao, T. K. T. & Bae 2006
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Agnetina den Cao, T.K.T. \u0026 Bae, 2006","normalized":"Agnetina den Cao, T. K. T. \u0026 Bae 2006","canonical":{"stemmed":"Agnetina den","simple":"Agnetina den","full":"Agnetina den"},"cardinality":2,"authorship":{"verbatim":"Cao, T.K.T. \u0026 Bae, 2006","normalized":"Cao, T. K. T. \u0026 Bae 2006","year":"2006","authors":["Cao","T. K. T.","Bae"],"originalAuth":{"authors":["Cao","T. K. T.","Bae"],"year":{"year":"2006"}}},"details":{"species":{"genus":"Agnetina","species":"den","authorship":{"verbatim":"Cao, T.K.T. \u0026 Bae, 2006","normalized":"Cao, T. K. T. \u0026 Bae 2006","year":"2006","authors":["Cao","T. K. T.","Bae"],"originalAuth":{"authors":["Cao","T. K. T.","Bae"],"year":{"year":"2006"}}}}},"words":[{"verbatim":"Agnetina","normalized":"Agnetina","wordType":"GENUS","start":0,"end":8},{"verbatim":"den","normalized":"den","wordType":"SPECIES","start":9,"end":12},{"verbatim":"Cao","normalized":"Cao","wordType":"AUTHOR_WORD","start":13,"end":16},{"verbatim":"T.","normalized":"T.","wordType":"AUTHOR_WORD","start":18,"end":20},{"verbatim":"K.","normalized":"K.","wordType":"AUTHOR_WORD","start":20,"end":22},{"verbatim":"T.","normalized":"T.","wordType":"AUTHOR_WORD","start":22,"end":24},{"verbatim":"Bae","normalized":"Bae","wordType":"AUTHOR_WORD","start":27,"end":30},{"verbatim":"2006","normalized":"2006","wordType":"YEAR","start":32,"end":36}],"id":"db92136c-7dc9-5d31-ac57-83ba03f05294","parserVersion":"test_version"}
+```
+Name: Desmoxytes des Srisonchai, Enghoff & Panha, 2016
+
+Canonical: Desmoxytes des
+
+Authorship: Srisonchai, Enghoff & Panha 2016
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Desmoxytes des Srisonchai, Enghoff \u0026 Panha, 2016","normalized":"Desmoxytes des Srisonchai, Enghoff \u0026 Panha 2016","canonical":{"stemmed":"Desmoxytes des","simple":"Desmoxytes des","full":"Desmoxytes des"},"cardinality":2,"authorship":{"verbatim":"Srisonchai, Enghoff \u0026 Panha, 2016","normalized":"Srisonchai, Enghoff \u0026 Panha 2016","year":"2016","authors":["Srisonchai","Enghoff","Panha"],"originalAuth":{"authors":["Srisonchai","Enghoff","Panha"],"year":{"year":"2016"}}},"details":{"species":{"genus":"Desmoxytes","species":"des","authorship":{"verbatim":"Srisonchai, Enghoff \u0026 Panha, 2016","normalized":"Srisonchai, Enghoff \u0026 Panha 2016","year":"2016","authors":["Srisonchai","Enghoff","Panha"],"originalAuth":{"authors":["Srisonchai","Enghoff","Panha"],"year":{"year":"2016"}}}}},"words":[{"verbatim":"Desmoxytes","normalized":"Desmoxytes","wordType":"GENUS","start":0,"end":10},{"verbatim":"des","normalized":"des","wordType":"SPECIES","start":11,"end":14},{"verbatim":"Srisonchai","normalized":"Srisonchai","wordType":"AUTHOR_WORD","start":15,"end":25},{"verbatim":"Enghoff","normalized":"Enghoff","wordType":"AUTHOR_WORD","start":27,"end":34},{"verbatim":"Panha","normalized":"Panha","wordType":"AUTHOR_WORD","start":37,"end":42},{"verbatim":"2016","normalized":"2016","wordType":"YEAR","start":44,"end":48}],"id":"6cbf87ea-fb64-5cf9-b6b8-6f73bbe568b7","parserVersion":"test_version"}
+```
+Name: Meteorus dos Zitani, 1998
+
+Canonical: Meteorus dos
+
+Authorship: Zitani 1998
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Meteorus dos Zitani, 1998","normalized":"Meteorus dos Zitani 1998","canonical":{"stemmed":"Meteorus dos","simple":"Meteorus dos","full":"Meteorus dos"},"cardinality":2,"authorship":{"verbatim":"Zitani, 1998","normalized":"Zitani 1998","year":"1998","authors":["Zitani"],"originalAuth":{"authors":["Zitani"],"year":{"year":"1998"}}},"details":{"species":{"genus":"Meteorus","species":"dos","authorship":{"verbatim":"Zitani, 1998","normalized":"Zitani 1998","year":"1998","authors":["Zitani"],"originalAuth":{"authors":["Zitani"],"year":{"year":"1998"}}}}},"words":[{"verbatim":"Meteorus","normalized":"Meteorus","wordType":"GENUS","start":0,"end":8},{"verbatim":"dos","normalized":"dos","wordType":"SPECIES","start":9,"end":12},{"verbatim":"Zitani","normalized":"Zitani","wordType":"AUTHOR_WORD","start":13,"end":19},{"verbatim":"1998","normalized":"1998","wordType":"YEAR","start":21,"end":25}],"id":"8c93aded-0398-5495-bd0d-948928f982f1","parserVersion":"test_version"}
+```
+Name: Stenoecia dos Freyer, 1838
+
+Canonical: Stenoecia dos
+
+Authorship: Freyer 1838
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Stenoecia dos Freyer, 1838","normalized":"Stenoecia dos Freyer 1838","canonical":{"stemmed":"Stenoecia dos","simple":"Stenoecia dos","full":"Stenoecia dos"},"cardinality":2,"authorship":{"verbatim":"Freyer, 1838","normalized":"Freyer 1838","year":"1838","authors":["Freyer"],"originalAuth":{"authors":["Freyer"],"year":{"year":"1838"}}},"details":{"species":{"genus":"Stenoecia","species":"dos","authorship":{"verbatim":"Freyer, 1838","normalized":"Freyer 1838","year":"1838","authors":["Freyer"],"originalAuth":{"authors":["Freyer"],"year":{"year":"1838"}}}}},"words":[{"verbatim":"Stenoecia","normalized":"Stenoecia","wordType":"GENUS","start":0,"end":9},{"verbatim":"dos","normalized":"dos","wordType":"SPECIES","start":10,"end":13},{"verbatim":"Freyer","normalized":"Freyer","wordType":"AUTHOR_WORD","start":14,"end":20},{"verbatim":"1838","normalized":"1838","wordType":"YEAR","start":22,"end":26}],"id":"ba1d6f79-a3b8-585f-a2fc-7fd6cfe42f19","parserVersion":"test_version"}
+```
+
+Name: Sympycnus du Curran, 1929
+
+Canonical: Sympycnus du
+
+Authorship: Curran 1929
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Sympycnus du Curran, 1929","normalized":"Sympycnus du Curran 1929","canonical":{"stemmed":"Sympycnus du","simple":"Sympycnus du","full":"Sympycnus du"},"cardinality":2,"authorship":{"verbatim":"Curran, 1929","normalized":"Curran 1929","year":"1929","authors":["Curran"],"originalAuth":{"authors":["Curran"],"year":{"year":"1929"}}},"details":{"species":{"genus":"Sympycnus","species":"du","authorship":{"verbatim":"Curran, 1929","normalized":"Curran 1929","year":"1929","authors":["Curran"],"originalAuth":{"authors":["Curran"],"year":{"year":"1929"}}}}},"words":[{"verbatim":"Sympycnus","normalized":"Sympycnus","wordType":"GENUS","start":0,"end":9},{"verbatim":"du","normalized":"du","wordType":"SPECIES","start":10,"end":12},{"verbatim":"Curran","normalized":"Curran","wordType":"AUTHOR_WORD","start":13,"end":19},{"verbatim":"1929","normalized":"1929","wordType":"YEAR","start":21,"end":25}],"id":"abca8348-1ec7-5b02-b54e-55d4313bb383","parserVersion":"test_version"}
+```
+
+Name: Bolitoglossa la Campbell, Smith, Streicher, Acevedo & Brodie, 2010
+
+Canonical: Bolitoglossa la
+
+Authorship: Campbell, Smith, Streicher, Acevedo & Brodie 2010
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Bolitoglossa la Campbell, Smith, Streicher, Acevedo \u0026 Brodie, 2010","normalized":"Bolitoglossa la Campbell, Smith, Streicher, Acevedo \u0026 Brodie 2010","canonical":{"stemmed":"Bolitoglossa la","simple":"Bolitoglossa la","full":"Bolitoglossa la"},"cardinality":2,"authorship":{"verbatim":"Campbell, Smith, Streicher, Acevedo \u0026 Brodie, 2010","normalized":"Campbell, Smith, Streicher, Acevedo \u0026 Brodie 2010","year":"2010","authors":["Campbell","Smith","Streicher","Acevedo","Brodie"],"originalAuth":{"authors":["Campbell","Smith","Streicher","Acevedo","Brodie"],"year":{"year":"2010"}}},"details":{"species":{"genus":"Bolitoglossa","species":"la","authorship":{"verbatim":"Campbell, Smith, Streicher, Acevedo \u0026 Brodie, 2010","normalized":"Campbell, Smith, Streicher, Acevedo \u0026 Brodie 2010","year":"2010","authors":["Campbell","Smith","Streicher","Acevedo","Brodie"],"originalAuth":{"authors":["Campbell","Smith","Streicher","Acevedo","Brodie"],"year":{"year":"2010"}}}}},"words":[{"verbatim":"Bolitoglossa","normalized":"Bolitoglossa","wordType":"GENUS","start":0,"end":12},{"verbatim":"la","normalized":"la","wordType":"SPECIES","start":13,"end":15},{"verbatim":"Campbell","normalized":"Campbell","wordType":"AUTHOR_WORD","start":16,"end":24},{"verbatim":"Smith","normalized":"Smith","wordType":"AUTHOR_WORD","start":26,"end":31},{"verbatim":"Streicher","normalized":"Streicher","wordType":"AUTHOR_WORD","start":33,"end":42},{"verbatim":"Acevedo","normalized":"Acevedo","wordType":"AUTHOR_WORD","start":44,"end":51},{"verbatim":"Brodie","normalized":"Brodie","wordType":"AUTHOR_WORD","start":54,"end":60},{"verbatim":"2010","normalized":"2010","wordType":"YEAR","start":62,"end":66}],"id":"accc157e-e26e-513d-9d40-d99ca4f2286f","parserVersion":"test_version"}
+```
+
+Name: Leptonetela la Wang & Li, 2017
+
+Canonical: Leptonetela la
+
+Authorship: Wang & Li 2017
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Leptonetela la Wang \u0026 Li, 2017","normalized":"Leptonetela la Wang \u0026 Li 2017","canonical":{"stemmed":"Leptonetela la","simple":"Leptonetela la","full":"Leptonetela la"},"cardinality":2,"authorship":{"verbatim":"Wang \u0026 Li, 2017","normalized":"Wang \u0026 Li 2017","year":"2017","authors":["Wang","Li"],"originalAuth":{"authors":["Wang","Li"],"year":{"year":"2017"}}},"details":{"species":{"genus":"Leptonetela","species":"la","authorship":{"verbatim":"Wang \u0026 Li, 2017","normalized":"Wang \u0026 Li 2017","year":"2017","authors":["Wang","Li"],"originalAuth":{"authors":["Wang","Li"],"year":{"year":"2017"}}}}},"words":[{"verbatim":"Leptonetela","normalized":"Leptonetela","wordType":"GENUS","start":0,"end":11},{"verbatim":"la","normalized":"la","wordType":"SPECIES","start":12,"end":14},{"verbatim":"Wang","normalized":"Wang","wordType":"AUTHOR_WORD","start":15,"end":19},{"verbatim":"Li","normalized":"Li","wordType":"AUTHOR_WORD","start":22,"end":24},{"verbatim":"2017","normalized":"2017","wordType":"YEAR","start":26,"end":30}],"id":"c21c3b32-c3cb-5004-9e4b-c0812e378c0c","parserVersion":"test_version"}
+```
+
+Name: Nocaracris van Ünal, 2016
+
+Canonical: Nocaracris van
+
+Authorship: Ünal 2016
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Nocaracris van Ünal, 2016","normalized":"Nocaracris van Ünal 2016","canonical":{"stemmed":"Nocaracris uan","simple":"Nocaracris van","full":"Nocaracris van"},"cardinality":2,"authorship":{"verbatim":"Ünal, 2016","normalized":"Ünal 2016","year":"2016","authors":["Ünal"],"originalAuth":{"authors":["Ünal"],"year":{"year":"2016"}}},"details":{"species":{"genus":"Nocaracris","species":"van","authorship":{"verbatim":"Ünal, 2016","normalized":"Ünal 2016","year":"2016","authors":["Ünal"],"originalAuth":{"authors":["Ünal"],"year":{"year":"2016"}}}}},"words":[{"verbatim":"Nocaracris","normalized":"Nocaracris","wordType":"GENUS","start":0,"end":10},{"verbatim":"van","normalized":"van","wordType":"SPECIES","start":11,"end":14},{"verbatim":"Ünal","normalized":"Ünal","wordType":"AUTHOR_WORD","start":15,"end":19},{"verbatim":"2016","normalized":"2016","wordType":"YEAR","start":21,"end":25}],"id":"da0de28d-1241-56dc-8a6a-d2f42824d283","parserVersion":"test_version"}
+```
+
+Name: Zodarion van Bosmans, 2009
+
+Canonical: Zodarion van
+
+Authorship: Bosmans 2009
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Zodarion van Bosmans, 2009","normalized":"Zodarion van Bosmans 2009","canonical":{"stemmed":"Zodarion uan","simple":"Zodarion van","full":"Zodarion van"},"cardinality":2,"authorship":{"verbatim":"Bosmans, 2009","normalized":"Bosmans 2009","year":"2009","authors":["Bosmans"],"originalAuth":{"authors":["Bosmans"],"year":{"year":"2009"}}},"details":{"species":{"genus":"Zodarion","species":"van","authorship":{"verbatim":"Bosmans, 2009","normalized":"Bosmans 2009","year":"2009","authors":["Bosmans"],"originalAuth":{"authors":["Bosmans"],"year":{"year":"2009"}}}}},"words":[{"verbatim":"Zodarion","normalized":"Zodarion","wordType":"GENUS","start":0,"end":8},{"verbatim":"van","normalized":"van","wordType":"SPECIES","start":9,"end":12},{"verbatim":"Bosmans","normalized":"Bosmans","wordType":"AUTHOR_WORD","start":13,"end":20},{"verbatim":"2009","normalized":"2009","wordType":"YEAR","start":22,"end":26}],"id":"f9e66138-6fdd-524a-bf7e-0ea56f4f0484","parserVersion":"test_version"}
+```
+
+Name: Malamatidia zu Jäger & Dankittipakul, 2010
+
+Canonical: Malamatidia zu
+
+Authorship: Jäger & Dankittipakul 2010
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Malamatidia zu Jäger \u0026 Dankittipakul, 2010","normalized":"Malamatidia zu Jäger \u0026 Dankittipakul 2010","canonical":{"stemmed":"Malamatidia zu","simple":"Malamatidia zu","full":"Malamatidia zu"},"cardinality":2,"authorship":{"verbatim":"Jäger \u0026 Dankittipakul, 2010","normalized":"Jäger \u0026 Dankittipakul 2010","year":"2010","authors":["Jäger","Dankittipakul"],"originalAuth":{"authors":["Jäger","Dankittipakul"],"year":{"year":"2010"}}},"details":{"species":{"genus":"Malamatidia","species":"zu","authorship":{"verbatim":"Jäger \u0026 Dankittipakul, 2010","normalized":"Jäger \u0026 Dankittipakul 2010","year":"2010","authors":["Jäger","Dankittipakul"],"originalAuth":{"authors":["Jäger","Dankittipakul"],"year":{"year":"2010"}}}}},"words":[{"verbatim":"Malamatidia","normalized":"Malamatidia","wordType":"GENUS","start":0,"end":11},{"verbatim":"zu","normalized":"zu","wordType":"SPECIES","start":12,"end":14},{"verbatim":"Jäger","normalized":"Jäger","wordType":"AUTHOR_WORD","start":15,"end":20},{"verbatim":"Dankittipakul","normalized":"Dankittipakul","wordType":"AUTHOR_WORD","start":23,"end":36},{"verbatim":"2010","normalized":"2010","wordType":"YEAR","start":38,"end":42}],"id":"0b16fdbe-1edd-57ea-aea6-248237d7bacb","parserVersion":"test_version"}
+```
+
+### Exceptions from author suffixes (suffix-like epithets)
+
+Name: Ruteloryctes bis Dechambre, 2006
+
+Canonical: Ruteloryctes bis
+
+Authorship: Dechambre 2006
+
+```json
+{"parsed":true,"quality":1,"verbatim":"Ruteloryctes bis Dechambre, 2006","normalized":"Ruteloryctes bis Dechambre 2006","canonical":{"stemmed":"Ruteloryctes bis","simple":"Ruteloryctes bis","full":"Ruteloryctes bis"},"cardinality":2,"authorship":{"verbatim":"Dechambre, 2006","normalized":"Dechambre 2006","year":"2006","authors":["Dechambre"],"originalAuth":{"authors":["Dechambre"],"year":{"year":"2006"}}},"details":{"species":{"genus":"Ruteloryctes","species":"bis","authorship":{"verbatim":"Dechambre, 2006","normalized":"Dechambre 2006","year":"2006","authors":["Dechambre"],"originalAuth":{"authors":["Dechambre"],"year":{"year":"2006"}}}}},"words":[{"verbatim":"Ruteloryctes","normalized":"Ruteloryctes","wordType":"GENUS","start":0,"end":12},{"verbatim":"bis","normalized":"bis","wordType":"SPECIES","start":13,"end":16},{"verbatim":"Dechambre","normalized":"Dechambre","wordType":"AUTHOR_WORD","start":17,"end":26},{"verbatim":"2006","normalized":"2006","wordType":"YEAR","start":28,"end":32}],"id":"ec9442cc-46cf-5451-ab72-e5aca85d26c0","parserVersion":"test_version"}
+```
 
 ### Not parsed OCR errors to get better precision/recall ratio
 
@@ -6875,7 +7368,7 @@ Canonical: Pseudocercospora dendrobii
 Authorship:
 
 ```json
-{"parsed":true,"quality":2,"qualityWarnings":[{"quality":2,"warning":"Multiple adjacent space characters"},{"quality":2,"warning":"Non-standard space characters"}],"verbatim":"Pseudocercospora__dendrobii","normalized":"Pseudocercospora dendrobii","canonical":{"stemmed":"Pseudocercospora dendrobi","simple":"Pseudocercospora dendrobii","full":"Pseudocercospora dendrobii"},"cardinality":2,"details":{"species":{"genus":"Pseudocercospora","species":"dendrobii"}},"words":[{"verbatim":"Pseudocercospora","normalized":"Pseudocercospora","wordType":"GENUS","start":0,"end":16},{"verbatim":"dendrobii","normalized":"dendrobii","wordType":"SPECIES","start":18,"end":27}],"id":"ae8a4688-2b2a-5974-81bf-1962838a9cbe","parserVersion":"test_version"}
+{"parsed":true,"quality":2,"qualityWarnings":[{"quality":2,"warning":"Non-standard space characters"}],"verbatim":"Pseudocercospora__dendrobii","normalized":"Pseudocercospora dendrobii","canonical":{"stemmed":"Pseudocercospora dendrobi","simple":"Pseudocercospora dendrobii","full":"Pseudocercospora dendrobii"},"cardinality":2,"details":{"species":{"genus":"Pseudocercospora","species":"dendrobii"}},"words":[{"verbatim":"Pseudocercospora","normalized":"Pseudocercospora","wordType":"GENUS","start":0,"end":16},{"verbatim":"dendrobii","normalized":"dendrobii","wordType":"SPECIES","start":18,"end":27}],"id":"ae8a4688-2b2a-5974-81bf-1962838a9cbe","parserVersion":"test_version"}
 ```
 
 Name:   Oxalis_barrelieri

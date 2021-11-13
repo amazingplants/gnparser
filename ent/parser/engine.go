@@ -14,6 +14,7 @@ type baseEngine struct {
 	cardinality     int
 	error           error
 	hybrid          *parsed.Annotation
+	graftChimera    *parsed.Annotation
 	surrogate       *parsed.Annotation
 	bacteria        *tribool.Tribool
 	warnings        map[parsed.Warning]struct{}
@@ -32,6 +33,7 @@ func (p *Engine) fullReset() {
 	p.cardinality = 0
 	p.error = nil
 	p.hybrid = nil
+	p.graftChimera = nil
 	p.surrogate = nil
 	p.bacteria = nil
 	var warnReset map[parsed.Warning]struct{}
@@ -107,14 +109,15 @@ func (p *Engine) newNode(t token32) (*node32, bool) {
 	case ruleHybridChar:
 		annot = parsed.HybridAnnot
 		p.hybrid = &annot
+	case ruleGraftChimeraChar:
+		annot = parsed.GraftChimeraAnnot
+		p.hybrid = &annot
 	case ruleRankNotho, ruleRankUninomialNotho:
 		annot = parsed.NothoHybridAnnot
 		p.hybrid = &annot
 		p.addWarn(parsed.HybridNamedWarn)
 	case ruleOtherSpace:
 		p.addWarn(parsed.SpaceNonStandardWarn)
-	case ruleMultipleSpace:
-		p.addWarn(parsed.SpaceMultipleWarn)
 	case ruleMiscodedChar:
 		p.addWarn(parsed.UTF8ConvBadWarn)
 	case ruleAbbrSubgenus:
@@ -184,12 +187,14 @@ var nodeRules = map[pegRule]struct{}{
 	ruleCandidatusName:                  {},
 	ruleCombinationAuthorship:           {},
 	ruleComparison:                      {},
-	ruleCultivarRecursive:               {},
-	ruleRankCultivar:                    {},
 	ruleCultivar:                        {},
+	ruleCultivarRecursive:               {},
+	ruleDotPrefix:                       {},
 	ruleFilius:                          {},
 	ruleFiliusFNoSpace:                  {},
 	ruleGenusWord:                       {},
+	ruleGraftChimeraChar:                {},
+	ruleGraftChimeraFormula:             {},
 	ruleHybridChar:                      {},
 	ruleHybridFormula:                   {},
 	ruleInfraspEpithet:                  {},
@@ -199,11 +204,13 @@ var nodeRules = map[pegRule]struct{}{
 	ruleNameApprox:                      {},
 	ruleNameComp:                        {},
 	ruleNameSpecies:                     {},
+	ruleNamedGenusGraftChimera:          {},
 	ruleNamedGenusHybrid:                {},
 	ruleNamedSpeciesHybrid:              {},
 	ruleOriginalAuthorship:              {},
 	ruleOriginalAuthorshipComb:          {},
 	ruleRank:                            {},
+	ruleRankCultivar:                    {},
 	ruleRankForma:                       {},
 	ruleRankOtherUncommon:               {},
 	ruleRankSsp:                         {},

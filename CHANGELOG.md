@@ -2,6 +2,36 @@
 
 ## Unreleased
 
+## [v1.5.3]
+
+- Add [#202]: add NormalizeMore function for Word.
+
+## [v1.5.2]
+
+- Add [#200]: support for 'div.' rank in uninomial combinations.
+- Add [#199]: fixes for several names that were not parsed correctly.
+- Add [#198]: parse "Solanum tuberosum wila-k`oyu".
+- Add [#97]: do not parse "Cyanophage".
+- Add [#85]: parse names with a dagger character.
+- Add [#84]: parse "Muscicapa randi Amadon & duPont, 1970".
+- Add [#83]: parse authors like 'Laverde-R.'.
+
+## [v1.5.1]
+
+- Add [#191]: support for ambiguous specific epithets
+
+## [v1.5.0]
+
+- Add [#194]: support for cultivars' graft-chymeras (courtesy of @tobymarsden)
+
+## [v1.4.2]
+
+- Add [#196]: parse authors with prefix 'ver'
+
+## [v1.4.1]
+
+- Fix [#195]: parse multinomials where authorshp is not separated by space.
+
 ## [v1.4.0]
 
 - Add [#193]: add TSV format for output.
@@ -301,6 +331,12 @@ array of names instead of a stream.
 
 This document follows [changelog guidelines]
 
+[v1.5.3]: https://github.com/gnames/gnparser/compare/v1.5.2...v1.5.3
+[v1.5.2]: https://github.com/gnames/gnparser/compare/v1.5.1...v1.5.2
+[v1.5.1]: https://github.com/gnames/gnparser/compare/v1.5.0...v1.5.1
+[v1.5.0]: https://github.com/gnames/gnparser/compare/v1.4.2...v1.5.0
+[v1.4.2]: https://github.com/gnames/gnparser/compare/v1.4.1...v1.4.2
+[v1.4.1]: https://github.com/gnames/gnparser/compare/v1.4.0...v1.4.1
 [v1.4.0]: https://github.com/gnames/gnparser/compare/v1.3.3...v1.4.0
 [v1.3.3]: https://github.com/gnames/gnparser/compare/v1.3.2...v1.3.3
 [v1.3.2]: https://github.com/gnames/gnparser/compare/v1.3.1...v1.3.2
@@ -344,6 +380,16 @@ This document follows [changelog guidelines]
 [v0.6.0]: https://github.com/gnames/gnparser/compare/v0.5.1...v0.6.0
 [v0.5.1]: https://github.com/gnames/gnparser/tree/v0.5.1
 
+[#210]: https://github.com/gnames/gnparser/issues/210
+[#209]: https://github.com/gnames/gnparser/issues/209
+[#208]: https://github.com/gnames/gnparser/issues/208
+[#207]: https://github.com/gnames/gnparser/issues/207
+[#206]: https://github.com/gnames/gnparser/issues/206
+[#205]: https://github.com/gnames/gnparser/issues/205
+[#204]: https://github.com/gnames/gnparser/issues/204
+[#203]: https://github.com/gnames/gnparser/issues/203
+[#202]: https://github.com/gnames/gnparser/issues/202
+[#201]: https://github.com/gnames/gnparser/issues/201
 [#200]: https://github.com/gnames/gnparser/issues/200
 [#199]: https://github.com/gnames/gnparser/issues/199
 [#198]: https://github.com/gnames/gnparser/issues/198
